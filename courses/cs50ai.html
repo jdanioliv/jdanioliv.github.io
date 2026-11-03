@@ -1,71 +1,70 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS50P: En Construcción | Joao Daniel De Paiva</title>
+    <title>CS50AI: Artificial Intelligence with Python | Joao Daniel De Paiva Oliveira</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- One level up (../) to use the same stylesheet as the home page -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="navbar">
-            <a href="../index.html" class="navbar__logo">
-                <span class="logo__bracket">&lt;</span>Maru<span class="logo__slash">/</span><span class="logo__bracket">&gt;</span>
-            </a>
-            <a href="../index.html#proyectos" class="btn btn--secondary">← Volver al Portafolio</a>
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="../index.html" class="navbar__logo">JD<span>.</span></a>
+            <a href="../index.html#learning" class="btn btn--secondary btn--small">&larr; Back to portfolio</a>
         </nav>
     </header>
 
-    <main class="section section--wip" style="margin-top: 2rem;">
-        <div class="hazard-tape"></div>
-
-        <div class="wip-banner">
-            <span class="wip-banner__icon">🚧</span>
-            <div class="wip-banner__content">
-                <span class="wip-banner__tag">COURSE IN PROGRESS // HARVARD CS50P</span>
-                <h1 class="section__title">CS50's Introduction to Programming with Python</h1>
-                <p class="wip-banner__desc">
-                    El certificado oficial se mostrará en el visor izquierdo al completar todos los Problem Sets. Abajo se detallan los módulos técnicos del temario.
-                </p>
-            </div>
+    <main class="section">
+        <div class="course-head">
+            <span class="course-head__status status status--next">Up next</span>
+            <h1>CS50AI: Introduction to Artificial Intelligence with Python</h1>
+            <p>Harvard&#x27;s AI course: the ideas behind search, games, machine learning and language models, implemented in Python.</p>
         </div>
 
         <div class="course-grid">
-            <div class="cert-showcase">
-                <h2 class="course-subtitle">// Visor de Certificado</h2>
-                <div class="cert-frame cert-frame--wip">
-                    <div class="cert-frame__fallback" style="display: flex;">
-                        <span class="cert-fallback__icon">🔒</span>
-                        <p><strong>Certificado Bloqueado (En Curso)</strong></p>
-                        <p class="cert-fallback__hint">Se desbloqueará automáticamente al finalizar el proyecto final de CS50P.</p>
+            <div>
+                <h2 class="course-subtitle">Certificate</h2>
+                <div class="cert-frame">
+                    <div class="cert-frame__locked">
+                        <strong>Not started yet</strong>
+                        <p>The next course on my list.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="course-notes">
-                <h2 class="course-subtitle">// Temario Técnico & Lectures</h2>
+            <div>
+                <h2 class="course-subtitle">Course outline</h2>
                 <div class="lecture-list">
                     <article class="lecture-item">
-                        <h3>Lectures 0 - 2: Functions, Conditionals & Loops</h3>
-                        <p>Tipado en Python, métodos de cadenas (<code>str</code>), control de flujo, diccionarios e iteración sobre estructuras de datos.</p>
+                        <h3>Search</h3>
+                        <p>Depth-first and breadth-first search, A* and minimax for games.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Lectures 3 - 5: Exceptions, Libraries & Unit Tests</h3>
-                        <p>Manejo defensivo de errores (<code>try/except</code>), uso de APIs externas con <code>requests</code>, creación de paquetes y pruebas automatizadas con <code>pytest</code>.</p>
+                        <h3>Knowledge and uncertainty</h3>
+                        <p>Logic and inference, probability, Bayesian networks and Markov models.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Lectures 6 - 8: File I/O, Regex & Object-Oriented Programming</h3>
-                        <p>Lectura/escritura de archivos CSV, validación de patrones con expresiones regulares (<code>re</code>), clases, métodos, propiedades (<code>@property</code>) y herencia en Python.</p>
+                        <h3>Optimization</h3>
+                        <p>Local search, linear programming and constraint satisfaction.</p>
+                    </article>
+                    <article class="lecture-item">
+                        <h3>Learning and neural networks</h3>
+                        <p>Supervised and reinforcement learning, neural networks and computer vision with TensorFlow.</p>
+                    </article>
+                    <article class="lecture-item">
+                        <h3>Language</h3>
+                        <p>Natural language processing, from grammars to attention and transformers.</p>
                     </article>
                 </div>
             </div>
         </div>
-
-        <div class="hazard-tape hazard-tape--bottom"></div>
     </main>
 
 </body>

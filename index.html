@@ -1,293 +1,270 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de desarrollo y laboratorio web de Joao Daniel De Paiva Oliveira.">
+    <meta name="description" content="Portfolio of Joao Daniel De Paiva Oliveira (Maru): IT systems student in Barcelona, learning software development with Python.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <title>Portfolio Web - Joao Daniel De Paiva Oliveira</title>
+    <title>Joao Daniel De Paiva Oliveira | Portfolio</title>
 
-<link rel="stylesheet" href="css/index.css">
-<script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/modules/terminal.js" defer></script>
+    <script src="js/modules/main.js" defer></script>
 </head>
 <body>
 
-    <!-- CABECERA Y NAVEGACIÓN PRINCIPAL -->
+    <!-- HEADER & NAVIGATION -->
     <header class="site-header">
-        <nav class="navbar" aria-label="Navegación principal">
-            <a href="#inicio" class="navbar__logo">
-                <span class="logo__bracket">&lt;</span>Maru<span class="terminal-cursor"></span><span class="logo__bracket">&gt;</span>
-            </a>
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="#home" class="navbar__logo">JD<span>.</span></a>
 
-            <ul class="navbar__links">
-                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-                <li><a href="#stack" class="nav-link">Stack Técnico</a></li>
-                <li><a href="#laboratorio" class="nav-link">JS Lab</a></li>
-                <li><a href="#certificaciones" class="nav-link">Certificados & Cursos</a></li>
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+
+            <ul class="navbar__links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#lab" class="nav-link">Lab</a></li>
+                <li><a href="#learning" class="nav-link">Learning</a></li>
+                <li><a href="cv.html" class="nav-link nav-link--cv">CV</a></li>
             </ul>
-
-            
-            <div>
-            </div>
         </nav>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
     <main>
-        <!-- HERO SECTION -->
-        <section id="inicio" class="hero">
-            <div class="hero__content">
-                <p class="hero__badge">
-                    <span class="status-dot"></span> Disponible para proyectos & prácticas
-                </p>
-                
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div>
+                <p class="hero__handle">aka Maru</p>
+
                 <h1 class="hero__title">
-                    Joao Daniel <span class="text-gradient">De Paiva Oliveira</span>
+                    Joao Daniel <span>De Paiva Oliveira</span>
                 </h1>
-                
+
                 <p class="hero__subtitle">
-                    Estudiante de <strong>SMR</strong> en ruta hacia <strong>DAM</strong>, construyendo una base sólida en desarrollo de software con foco futuro en <strong>Python, Big Data e Inteligencia Artificial</strong>.
+                    IT systems student in <strong>Barcelona</strong>, moving into software development.
+                    I write <strong>Python</strong>, build small web tools, and want to end up working with
+                    <strong>data and AI</strong>.
                 </p>
 
-                <!-- Botones de llamada a la acción -->
-                <div class="hero__cta-group">
-                    <a href="#laboratorio" class="btn btn--primary">Explorar JS Lab</a>
-                    <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
-                        Ver GitHub
-                    </a>
+                <div class="hero__actions">
+                    <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" download>Download CV</a>
+                    <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">GitHub</a>
                 </div>
             </div>
 
-            <!-- Tarjeta visual estilo terminal/código -->
-            <aside class="hero__visual" aria-label="Resumen técnico en formato código">
-                <div class="code-card">
-                    <div class="code-card__header">
-                        <span class="dot dot--red"></span>
-                        <span class="dot dot--yellow"></span>
-                        <span class="dot dot--green"></span>
-                        <span class="code-card__filename">developer_profile.py</span>
+            <!-- Small interactive terminal (js/modules/terminal.js) -->
+            <div class="terminal" data-terminal data-autorun="whoami" aria-label="Interactive terminal">
+                <div class="terminal__bar">
+                    <span>maru@portfolio:~</span>
+                    <span>type "help"</span>
+                </div>
+                <div class="terminal__body">
+                    <div class="terminal__output"></div>
+                    <div class="terminal__input-row">
+                        <span class="terminal__prompt">maru@portfolio:~$</span>
+                        <input type="text" class="terminal__input" aria-label="Terminal command" autocomplete="off" spellcheck="false">
                     </div>
-                    <pre class="code-card__body"><code>class Developer:
-    def __init__(self):
-        self.name = "Joao Daniel De Paiva"
-        self.alias = "Maru"
-        self.location = "Barcelona, ES"
-        self.current = "SMR -> DAM"
-        self.stack = ["Python", "HTML5", "CSS3", "Java", "Git"]
-        self.learning = ["JavaScript", "Lua/Luau", "SQL"]
-        self.goal = "Big Data & AI Engineering"
-        self.lenguajes = [Español, Inglés, Portugués]
-
-    def status(self):
-        return "Building real-world projects."</code></pre>
                 </div>
-            </aside>
-        </section>
-   
-        <!-- ACADEMIC ROADMAP -->
-        <section id="sobre-mi" class="section">
-            <div class="section__header">
-                <span class="section__tag"> 01. PERFIL & RUTA</span>
-                <h2 class="section__title">Hoja de Ruta</h2>
+                <div class="terminal__chips">
+                    <button type="button" class="terminal__chip" data-command="help">help</button>
+                    <button type="button" class="terminal__chip" data-command="skills">skills</button>
+                    <button type="button" class="terminal__chip" data-command="projects">projects</button>
+                    <button type="button" class="terminal__chip" data-command="contact">contact</button>
+                    <button type="button" class="terminal__chip" data-command="cv">cv</button>
+                </div>
             </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <h2 class="section__title">About</h2>
 
             <div class="about__grid">
                 <div class="about__text">
                     <p>
-                        Actualmente curso <strong>SMR (Sistemas Microinformáticos y Redes)</strong> en Digitech Barcelona, construyendo una base sólida en sistemas, redes y programación estructurada.
+                        I'm in my second year of <strong>SMR (Microcomputer Systems and Networks)</strong> at Digitech FP in Barcelona:
+                        hardware, operating systems, networks and security. That gave me a solid base, but what I enjoy most is writing code.
                     </p>
                     <p>
-                        Mi objetivo inmediato es dar el salto a <strong>DAM (Desarrollo de Aplicaciones Multiplataforma)</strong>, seguido de una especialización de posgrado en <strong>Big Data, Inteligencia Artificial e Ingeniería en Python</strong>.
+                        I finished Harvard's <strong>CS50x</strong> and I'm working through the rest of the CS50 courses.
+                        Outside class I play a lot of games and make my own in <strong>Roblox with Luau</strong>,
+                        and I'm into anime and manga. Online I go by <strong>Maru</strong>.
+                    </p>
+                    <p>
+                        I speak <strong>English and Portuguese</strong> natively and live in Spain.
                     </p>
                 </div>
 
-                <div class="roadmap-card">
-                    <h3 class="roadmap-card__title">Academic & Career Pipeline</h3>
-                    <ul class="timeline">
-                        <li class="timeline__item timeline__item--active">
-                            <span class="timeline__step">Actual</span>
-                            <strong>SMR</strong> — Fundamentos de Sistemas, Redes y Scripting.
-                        </li>
-                        <li class="timeline__item">
-                            <span class="timeline__step">Paso 2</span>
-                            <strong>DAM</strong> — Desarrollo Multiplataforma, Bases de Datos y Arquitectura.
-                        </li>
-                        <li class="timeline__item">
-                            <span class="timeline__step">Meta Final</span>
-                            <strong>Másters en Big Data, IA & Python</strong> — Ingeniería de Datos.
-                        </li>
+                <ol class="path" aria-label="Study path">
+                    <li class="path__step path__step--now">
+                        <span class="path__when">Now</span>
+                        <strong>SMR</strong>: systems, networks and scripting (2025–2027)
+                    </li>
+                    <li class="path__step">
+                        <span class="path__when">Next</span>
+                        <strong>DAM</strong>: multiplatform app development and databases
+                    </li>
+                    <li class="path__step">
+                        <span class="path__when">Later</span>
+                        <strong>Data &amp; AI</strong>: specialising in Python, Big Data and machine learning
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <h2 class="section__title">Skills</h2>
+            <p class="section__intro">What I use, and where I've actually used it.</p>
+
+            <div class="skills__grid">
+                <div class="skills__group">
+                    <h3>Programming</h3>
+                    <ul class="skills__list">
+                        <li><span class="skills__name">Python</span><span class="skills__note">CS50 problem sets, the log analyzer on this site</span></li>
+                        <li><span class="skills__name">JavaScript</span><span class="skills__note">The lab apps and terminal on this site</span></li>
+                        <li><span class="skills__name">HTML &amp; CSS</span><span class="skills__note">This site, built from scratch</span></li>
+                        <li><span class="skills__name">Java</span><span class="skills__note">Object-oriented basics, preparing for DAM</span></li>
+                        <li><span class="skills__name">Lua / Luau</span><span class="skills__note">Making games in Roblox Studio</span></li>
+                        <li><span class="skills__name">SQL</span><span class="skills__note">Relational databases in CS50</span></li>
+                    </ul>
+                </div>
+
+                <div class="skills__group">
+                    <h3>Systems &amp; networks</h3>
+                    <ul class="skills__list">
+                        <li><span class="skills__name">Windows &amp; Windows Server</span><span class="skills__note">Users, groups and permissions, PowerShell</span></li>
+                        <li><span class="skills__name">Linux</span><span class="skills__note">Ubuntu / Debian from the command line, Bash</span></li>
+                        <li><span class="skills__name">Networks</span><span class="skills__note">LAN / WLAN, IPv4 addressing, DNS</span></li>
+                        <li><span class="skills__name">Hardware</span><span class="skills__note">Building, repairing and diagnosing PCs</span></li>
+                    </ul>
+                </div>
+
+                <div class="skills__group">
+                    <h3>Tools</h3>
+                    <ul class="skills__list">
+                        <li><span class="skills__name">Git &amp; GitHub</span><span class="skills__note">Version control for my projects</span></li>
+                        <li><span class="skills__name">VS Code</span><span class="skills__note">My everyday editor</span></li>
+                        <li><span class="skills__name">VirtualBox</span><span class="skills__note">Virtual machines for school labs</span></li>
+                        <li><span class="skills__name">Office &amp; Google Workspace</span><span class="skills__note">Excel, Sheets, Word, Docs</span></li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- TECH STACK SECTION -->
-        <section id="stack" class="section">
-            <div class="section__header">
-                <span class="section__tag"> 02. HABILIDADES TÉCNICAS</span>
-                <h2 class="section__title">Stack Tecnológico</h2>
-            </div>
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <h2 class="section__title">Projects</h2>
+            <p class="section__intro">Small things I built and can explain line by line.</p>
 
-            <div class="stack__grid">
-                <!-- Python Card -->
-                <article class="skill-card">
-                    <div class="skill-card__top">
-                        <h3 class="skill-card__name">Python</h3>
-                        <span class="skill-card__badge">Intermedio</span>
+            <div class="projects__grid">
+                <article class="project-card">
+                    <span class="project-card__tech">Python · regex · PyScript</span>
+                    <h3>Server log analyzer</h3>
+                    <p>Reads HTTP server logs, counts requests per IP and status code, and flags repeated 4xx/5xx errors as a possible brute-force attempt. It runs in the browser with PyScript.</p>
+                    <div class="project-card__links">
+                        <a href="#lab" data-open-tab="app-python">Try it</a>
+                        <a href="https://github.com/jdanioliv/web-portflio/blob/main/python/log_analyzer.py" target="_blank" rel="noopener noreferrer">Code</a>
                     </div>
-                    <p class="skill-card__desc">Lógica, automatización, estructuras de datos y base para IA/Big Data.</p>
-                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 70%;"></div></div>
                 </article>
 
-                <!-- HTML5 Card -->
-                <article class="skill-card">
-                    <div class="skill-card__top">
-                        <h3 class="skill-card__name">HTML5</h3>
-                        <span class="skill-card__badge">Intermedio</span>
+                <article class="project-card">
+                    <span class="project-card__tech">HTML · CSS · JavaScript</span>
+                    <h3>Interactive CV</h3>
+                    <p>My CV as a web page, with a small terminal you can type commands into, and the PDF to download in English or Spanish.</p>
+                    <div class="project-card__links">
+                        <a href="cv.html">Open</a>
+                        <a href="https://github.com/jdanioliv/web-portflio/blob/main/cv.html" target="_blank" rel="noopener noreferrer">Code</a>
                     </div>
-                    <p class="skill-card__desc">Arquitectura web semántica, SEO básico y estructura accesible.</p>
-                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 60%;"></div></div>
                 </article>
 
-                <!-- CSS3 Card -->
-                <article class="skill-card">
-                    <div class="skill-card__top">
-                        <h3 class="skill-card__name">CSS3</h3>
-                        <span class="skill-card__badge">Intermedio</span>
+                <article class="project-card">
+                    <span class="project-card__tech">HTML · CSS · JavaScript</span>
+                    <h3>This portfolio</h3>
+                    <p>Built from scratch without frameworks: responsive layout, a mobile menu, a terminal and three mini apps, hosted on GitHub Pages.</p>
+                    <div class="project-card__links">
+                        <a href="https://github.com/jdanioliv/web-portflio" target="_blank" rel="noopener noreferrer">Repository</a>
                     </div>
-                    <p class="skill-card__desc">Variables CSS, Flexbox, CSS Grid, animaciones y Responsive Design.</p>
-                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 60%;"></div></div>
-                </article>
-
-                <!-- Java Card -->
-                <article class="skill-card">
-                    <div class="skill-card__top">
-                        <h3 class="skill-card__name">Java</h3>
-                        <span class="skill-card__badge skill-card__badge--basic">Básico</span>
-                    </div>
-                    <p class="skill-card__desc">Programación Orientada a Objetos (POO) y tipado fuerte para DAM.</p>
-                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 30%;"></div></div>
                 </article>
             </div>
-
         </section>
 
-        
-        <!-- SECCIÓN 03: INTERACTIVE CODE LAB -->
-        <section id="laboratorio" class="section">
-            <div class="section__header">
-                <span class="section__tag"> 03. INTERACTIVIDAD & LÓGICA </span>
-                <h2 class="section__title">Interactive Code Lab</h2>
-            </div>
+        <!-- LAB -->
+        <section id="lab" class="section">
+            <h2 class="section__title">Lab</h2>
+            <p class="section__intro">Three mini apps that run right here in the browser.</p>
 
             <div class="lab-tabs" role="tablist">
-                <button type="button" class="lab-tab lab-tab--active" data-target="app-analyzer">
-                    01. Text & Data Analyzer (JS)
-                </button>
-                <button type="button" class="lab-tab" data-target="app-python">
-                    02. Python Live Engine (PyScript)
-                </button>
-                <button type="button" class="lab-tab" data-target="app-todo">
-                    03. Task Manager (LocalStorage)
-                </button>
+                <button type="button" class="lab-tab lab-tab--active" data-target="app-analyzer">Text analyzer</button>
+                <button type="button" class="lab-tab" data-target="app-python">Log analyzer (Python)</button>
+                <button type="button" class="lab-tab" data-target="app-todo">Task manager</button>
             </div>
 
             <div class="lab-container">
 
-                <!-- MINI-APP 1: ANALIZADOR DE TEXTO -->
+                <!-- MINI APP 1: TEXT ANALYZER -->
                 <div id="app-analyzer" class="lab-panel lab-panel--active">
-                    <div class="analyzer__header">
-                        <h3>Analizador de Texto y Datos en Vivo</h3>
-                        <p>Escribe o pega cualquier texto para calcular métricas en tiempo real.</p>
+                    <div class="lab-panel__head">
+                        <h3>Text analyzer</h3>
+                        <p>Type or paste any text to count it live.</p>
                     </div>
 
-                    <textarea id="analyzer-input" class="analyzer__textarea" placeholder="Escribe o pega texto aquí..." rows="4"></textarea>
+                    <textarea id="analyzer-input" class="lab-textarea" placeholder="Type or paste text here..." rows="4"></textarea>
 
-                    <div class="analyzer__stats">
-                        <div class="stat-box">
-                            <span class="stat-box__label">Caracteres</span>
-                            <span id="stat-chars" class="stat-box__value">0</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-box__label">Sin Espacios</span>
-                            <span id="stat-no-spaces" class="stat-box__value">0</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-box__label">Palabras</span>
-                            <span id="stat-words" class="stat-box__value">0</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-box__label">Lectura</span>
-                            <span id="stat-time" class="stat-box__value">0s</span>
-                        </div>
+                    <div class="stats">
+                        <div class="stat"><span class="stat__label">Characters</span><span id="stat-chars" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label">Without spaces</span><span id="stat-no-spaces" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label">Words</span><span id="stat-words" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label">Reading time</span><span id="stat-time" class="stat__value">0s</span></div>
                     </div>
 
-                    <button type="button" id="analyzer-clear-btn" class="btn btn--secondary">
-                        Limpiar Datos
-                    </button>
+                    <button type="button" id="analyzer-clear-btn" class="btn btn--secondary btn--small">Clear</button>
                 </div>
 
-                <!-- MINI-APP 2: PYTHON LOG & ANOMALY PARSER -->
+                <!-- MINI APP 2: PYTHON LOG ANALYZER -->
                 <div id="app-python" class="lab-panel">
-                    <div class="analyzer__header">
-                        <div class="py-header-top">
-                            <h3>Server Log & Anomaly Parser (Python 3)</h3>
-                            <span id="py-engine-status" class="engine-badge engine-badge--idle">
-                                Motor Python: En espera (Lazy Load)
-                            </span>
-                        </div>
-                        <p>Análisis de registros HTTP en tiempo real ejecutando <code>collections.Counter</code> y <code>re</code> (Regex) en Python nativo.</p>
+                    <div class="lab-panel__head">
+                        <h3>Server log analyzer</h3>
+                        <span id="py-engine-status" class="badge">Python: not loaded</span>
+                        <p>Real Python (<code>re</code> and <code>collections.Counter</code>) running in your browser with PyScript.</p>
                     </div>
 
                     <div id="py-loader-box" class="py-loader">
                         <div class="spinner"></div>
-                        <p id="py-loader-text">Descargando motor WebAssembly de Python (~15MB)... Solo ocurre la primera vez que abres esta pestaña.</p>
+                        <p id="py-loader-text">Downloading Python for the browser (about 15 MB, only the first time)...</p>
                     </div>
 
-                    <div id="py-workspace" class="py-workspace py-workspace--hidden">
-                        <textarea id="py-log-input" class="analyzer__textarea" rows="6">
-                            192.168.1.10 - [25/Oct/2026:10:12:01] "GET /api/users HTTP/1.1" 200
-                            10.0.0.45 - [25/Oct/2026:10:12:04] "POST /api/login HTTP/1.1" 401
-                            10.0.0.45 - [25/Oct/2026:10:12:05] "POST /api/login HTTP/1.1" 401
-                            10.0.0.45 - [25/Oct/2026:10:12:07] "POST /api/admin HTTP/1.1" 403
-                            172.16.0.8 - [25/Oct/2026:10:13:10] "GET /index.html HTTP/1.1" 200
-                            192.168.1.10 - [25/Oct/2026:10:14:22] "GET /api/data HTTP/1.1" 500
-                            10.0.0.45 - [25/Oct/2026:10:14:30] "POST /api/login HTTP/1.1" 401
-                        </textarea>
+                    <div id="py-workspace" class="hidden">
+                        <textarea id="py-log-input" class="lab-textarea" rows="7" spellcheck="false">192.168.1.10 - [25/Oct/2026:10:12:01] "GET /api/users HTTP/1.1" 200
+10.0.0.45 - [25/Oct/2026:10:12:04] "POST /api/login HTTP/1.1" 401
+10.0.0.45 - [25/Oct/2026:10:12:05] "POST /api/login HTTP/1.1" 401
+10.0.0.45 - [25/Oct/2026:10:12:07] "POST /api/admin HTTP/1.1" 403
+172.16.0.8 - [25/Oct/2026:10:13:10] "GET /index.html HTTP/1.1" 200
+192.168.1.10 - [25/Oct/2026:10:14:22] "GET /api/data HTTP/1.1" 500
+10.0.0.45 - [25/Oct/2026:10:14:30] "POST /api/login HTTP/1.1" 401</textarea>
 
-                        <div class="analyzer__actions">
-                            <button type="button" id="py-run-btn" class="btn btn--primary">
-                                Ejecutar Pipeline en Python
-                            </button>
-                        </div>
+                        <button type="button" id="py-run-btn" class="btn btn--primary btn--small">Analyze logs</button>
 
-                        <pre class="code-card__body py-output"><code id="py-output-json">// Pulsa "Ejecutar Pipeline en Python" para procesar los registros...</code></pre>
+                        <pre class="py-output"><code id="py-output-json">// Press "Analyze logs" to run the Python script...</code></pre>
                     </div>
                 </div>
 
-                <!-- MINI-APP 3: TASK MANAGER CON ARQUITECTURA DESACOPLADA (STEP 2.3) -->
+                <!-- MINI APP 3: TASK MANAGER -->
                 <div id="app-todo" class="lab-panel">
-                    <div class="analyzer__header">
-                        <div class="py-header-top">
-                            <h3>Dev Task Manager (Persistencia Local)</h3>
-                            <span id="todo-count-badge" class="engine-badge engine-badge--ready">0 pendientes</span>
-                        </div>
-                        <p>Tus tareas se guardan en el navegador mediante una interfaz <code>TaskStorage</code> desacoplada (lista para migrar a API Python en Fase 4).</p>
+                    <div class="lab-panel__head">
+                        <h3>Task manager</h3>
+                        <span id="todo-count-badge" class="badge badge--ready">0 pending</span>
+                        <p>Your tasks are saved in this browser with <code>localStorage</code>, so they're still here when you come back.</p>
                     </div>
 
                     <form id="todo-form" class="todo__form">
-                        <input 
-                            type="text" 
-                            id="todo-input" 
-                            class="todo__input" 
-                            placeholder="Añadir nueva tarea técnica (ej. Terminar PSet 2 de CS50P)..." 
-                            required
-                        >
-                        <button type="submit" class="btn btn--primary">Añadir Tarea</button>
+                        <input type="text" id="todo-input" class="lab-input" placeholder="New task (e.g. Finish CS50P problem set 2)" required>
+                        <button type="submit" class="btn btn--primary btn--small">Add</button>
                     </form>
 
                     <ul id="todo-list" class="todo__list"></ul>
@@ -295,162 +272,63 @@
             </div>
         </section>
 
-        <section id="certificaciones" class="section section--wip">
-            <div class="hazard-tape" aria-hidden="true"></div>
+        <!-- LEARNING -->
+        <section id="learning" class="section">
+            <h2 class="section__title">Learning</h2>
+            <p class="section__intro">Courses I've finished and the ones I'm working through.</p>
 
-            <div class="wip-banner">
-                <span class="wip-banner__icon">⚠️</span>
-                <div class="wip-banner__content">
-                    <span class="wip-banner__tag">ACTIVE LEARNING PIPELINE // HARVARD CS50 & MLOPS</span>
-                    <h2 class="section__title">Certificaciones & Especialización Técnica</h2>
-                    <p class="wip-banner__desc">
-                        Haz clic en cualquier tarjeta para abrir el certificado verificado y el desglose de módulos técnicos.
-                    </p>
-                </div>
+            <div class="learning__grid">
+                <a href="courses/cs50x.html" class="cert-done">
+                    <span class="cert-done__badge">Completed · Certificate</span>
+                    <h3>CS50x: Introduction to Computer Science</h3>
+                    <p>Harvard. Algorithms and data structures in C, memory, Python, SQL and a final web app with Flask.</p>
+                    <span class="cert-done__link">See certificate and notes →</span>
+                </a>
+
+                <ul class="course-list">
+                    <li>
+                        <a href="courses/cs50p.html">
+                            <span class="course-list__name">CS50P: Programming with Python <span class="course-list__org">Harvard</span></span>
+                            <span class="status status--progress">In progress</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="courses/cs50w.html">
+                            <span class="course-list__name">CS50W: Web Programming with Python and JavaScript <span class="course-list__org">Harvard</span></span>
+                            <span class="status status--progress">In progress</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="courses/cs50ai.html">
+                            <span class="course-list__name">CS50AI: Artificial Intelligence with Python <span class="course-list__org">Harvard</span></span>
+                            <span class="status status--next">Up next</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="courses/cs50g.html">
+                            <span class="course-list__name">CS50G: Introduction to Game Development <span class="course-list__org">Harvard</span></span>
+                            <span class="status status--next">Up next</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="courses/tinyml.html">
+                            <span class="course-list__name">Tiny Machine Learning (TinyML) <span class="course-list__org">HarvardX</span></span>
+                            <span class="status status--later">Later</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="certs__grid">
-                <!-- 1. CS50x: COMPLETED -->
-                <a href="courses/cs50x.html" class="cert-card cert-card--done">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — CS50x</span>
-                            <span class="cert-card__status cert-card__status--done">✓ Certificado Obtenido</span>
-                        </div>
-                        <h3 class="cert-card__title">Introduction to Computer Science</h3>
-                        <p class="cert-card__desc">
-                            Algoritmos, estructuras de datos en C, Python, SQL, memoria y desarrollo de aplicación web con <strong>Flask</strong>.
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>C</li>
-                            <li>Python</li>
-                            <li>Flask</li>
-                            <li>SQL</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Certificado & Notas →</span>
-                    </div>
-                </a>
-
-                <!-- 2. CS50P: WORK IN PROGRESS -->
-                <a href="courses/cs50p.html" class="cert-card cert-card--wip">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — CS50P</span>
-                            <span class="cert-card__status cert-card__status--hazard">🚧 En Construcción</span>
-                        </div>
-                        <h3 class="cert-card__title">Programming with Python</h3>
-                        <p class="cert-card__desc">
-                            Dominio profundo de Python 3: expresiones regulares (Regex), pruebas unitarias (`pytest`), I/O de archivos y Programación Orientada a Objetos.
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>Python 3</li>
-                            <li>OOP</li>
-                            <li>Pytest</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Temario →</span>
-                    </div>
-                </a>
-
-                <!-- 3. CS50W: WORK IN PROGRESS -->
-                <a href="courses/cs50w.html" class="cert-card cert-card--wip">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — CS50W</span>
-                            <span class="cert-card__status cert-card__status--hazard">🚧 En Construcción</span>
-                        </div>
-                        <h3 class="cert-card__title">Web Programming with Python & JS</h3>
-                        <p class="cert-card__desc">
-                            Arquitectura de aplicaciones web escalables con <strong>Django</strong>, APIs REST, JavaScript asíncrono, CI/CD y bases de datos relacionales.
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>Python</li>
-                            <li>Django</li>
-                            <li>JavaScript</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Temario →</span>
-                    </div>
-                </a>
-
-                <!-- 4. CS50AI: WORK IN PROGRESS -->
-                <a href="courses/cs50ai.html" class="cert-card cert-card--wip">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — CS50AI</span>
-                            <span class="cert-card__status cert-card__status--hazard">⚠️ Próximo Módulo</span>
-                        </div>
-                        <h3 class="cert-card__title">Artificial Intelligence with Python</h3>
-                        <p class="cert-card__desc">
-                            Algoritmos de búsqueda en grafos, aprendizaje por refuerzo, redes neuronales, procesamiento de lenguaje natural (NLP) y optimización.
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>AI</li>
-                            <li>Machine Learning</li>
-                            <li>NLP</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Temario →</span>
-                    </div>
-                </a>
-
-                <!-- 5. CS50G: WORK IN PROGRESS -->
-                <a href="courses/cs50g.html" class="cert-card cert-card--wip">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — CS50G</span>
-                            <span class="cert-card__status cert-card__status--hazard">⚠️ Próximo Módulo</span>
-                        </div>
-                        <h3 class="cert-card__title">Introduction to Game Development</h3>
-                        <p class="cert-card__desc">
-                            Arquitectura de motores gráficos 2D y 3D, máquinas de estados (State Machines), físicas, colisiones y programación orientada a entidades.
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>Game Dev</li>
-                            <li>State Machines</li>
-                            <li>Lua / C#</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Temario →</span>
-                    </div>
-                </a>
-
-                <!-- 6. TinyML / MLOps: WORK IN PROGRESS -->
-                <a href="courses/tinyml.html" class="cert-card cert-card--wip">
-                    <div>
-                        <div class="cert-card__header">
-                            <span class="cert-card__org">HarvardX — TinyML & MLOps</span>
-                            <span class="cert-card__status cert-card__status--hazard">🔒 Ruta Avanzada</span>
-                        </div>
-                        <h3 class="cert-card__title">MLOps & Applied TinyML</h3>
-                        <p class="cert-card__desc">
-                            Despliegue de modelos de Machine Learning en producción, optimización de modelos embebidos, pipelines de datos y monitoreo (MLOps).
-                        </p>
-                    </div>
-                    <div class="cert-card__footer">
-                        <ul class="cert-card__tags">
-                            <li>MLOps</li>
-                            <li>TinyML</li>
-                            <li>TensorFlow</li>
-                        </ul>
-                        <span class="cert-card__link-icon">Ver Programa →</span>
-                    </div>
-                </a>
-                </div>
-
-            <div class="hazard-tape hazard-tape--bottom" aria-hidden="true"></div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer__content">
-            <p>&copy; 2026 <strong>Joao Daniel De Paiva Oliveira (Maru)</strong>. Construido desde cero.</p>
-            <p class="footer__tech">Alojado en GitHub Pages</p>
+            <p>&copy; 2026 Joao Daniel De Paiva Oliveira · Maru</p>
+            <div class="footer__links">
+                <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:joaodaniel.jd@icloud.com">Email</a>
+                <a href="cv.html">CV</a>
+            </div>
         </div>
     </footer>
 </body>

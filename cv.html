@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive CV of Joao Daniel De Paiva Oliveira, with PDF downloads in English and Spanish.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>CV | Joao Daniel De Paiva Oliveira</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/modules/terminal.js" defer></script>
+    <script src="js/modules/main.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="navbar__logo">JD<span>.</span></a>
+
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+
+            <ul class="navbar__links" id="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="index.html#lab" class="nav-link">Lab</a></li>
+                <li><a href="index.html#learning" class="nav-link">Learning</a></li>
+                <li><a href="cv.html" class="nav-link nav-link--cv">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="cv-page__head">
+            <div>
+                <h1 class="section__title">Curriculum Vitae</h1>
+                <p class="section__intro" style="margin-bottom: 0;">Read it here, ask the terminal, or download the PDF.</p>
+            </div>
+            <div class="cv-page__downloads">
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" download>Download PDF (English)</a>
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_ES.pdf" class="btn btn--secondary" download>PDF (Español)</a>
+            </div>
+        </div>
+
+        <div class="cv-layout">
+            <!-- The CV itself: same sections and order as the PDF -->
+            <article class="cv-sheet">
+                <div>
+                    <section class="cv-block">
+                        <h2>Personal details</h2>
+                        <div class="cv-row"><span class="cv-label">Full name</span>Joao Daniel De Paiva Oliveira</div>
+                        <div class="cv-row"><span class="cv-label">Location</span>Barcelona, Spain</div>
+                        <div class="cv-row"><span class="cv-label">Email</span><a href="mailto:joaodaniel.jd@icloud.com">joaodaniel.jd@icloud.com</a></div>
+                        <div class="cv-row"><span class="cv-label">GitHub</span><a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">github.com/jdanioliv</a></div>
+                        <div class="cv-row"><span class="cv-label">Availability</span>Immediate</div>
+                    </section>
+
+                    <section class="cv-block">
+                        <h2>Additional training</h2>
+                        <div class="cv-item">
+                            <div class="cv-item__head">CS50: Introduction to Computer Science</div>
+                            <div class="cv-item__place">Harvard University · 2025</div>
+                            <p>Algorithms, data structures, memory management in C, SQL and Python.</p>
+                        </div>
+                    </section>
+
+                    <section class="cv-block">
+                        <h2>Languages</h2>
+                        <div class="cv-row"><span class="cv-label">English</span>Native</div>
+                        <div class="cv-row"><span class="cv-label">Portuguese</span>Native</div>
+                    </section>
+                </div>
+
+                <div>
+                    <section class="cv-block">
+                        <h2>Introduction</h2>
+                        <p>
+                            Second-year student of IT Systems and Networks (SMR) at Digitech FP, with a background in
+                            Computer Science (Harvard CS50). Analytical and solution-oriented, quick to learn new technologies
+                            and good at communicating with people. Interested in technical support, systems administration
+                            and software development.
+                        </p>
+                    </section>
+
+                    <section class="cv-block">
+                        <h2>Technical skills</h2>
+                        <div class="cv-skill"><strong>Programming and web</strong>Python, Java, JavaScript, HTML5, CSS3, C++, Git / GitHub</div>
+                        <div class="cv-skill"><strong>Databases</strong>SQL (relational databases)</div>
+                        <div class="cv-skill"><strong>Operating systems</strong>Windows 10/11, Windows Server 2022, Ubuntu / Debian Linux</div>
+                        <div class="cv-skill"><strong>Administration</strong>Active Directory (users, groups and permissions), PowerShell, Bash</div>
+                        <div class="cv-skill"><strong>Networks</strong>LAN / WLAN, IPv4 addressing, DNS</div>
+                        <div class="cv-skill"><strong>Hardware</strong>PC building, maintenance and diagnostics; OS installation, partitioning and cloning</div>
+                        <div class="cv-skill"><strong>Virtualisation</strong>VirtualBox</div>
+                        <div class="cv-skill"><strong>Office tools</strong>Excel, Google Sheets, Word, Google Docs, PowerPoint, Outlook</div>
+                    </section>
+
+                    <section class="cv-block">
+                        <h2>Education</h2>
+                        <div class="cv-item">
+                            <div class="cv-item__head">Vocational Diploma in IT Systems and Networks (SMR)<span class="cv-item__date">2025 – 2027</span></div>
+                            <div class="cv-item__place">Digitech FP, Barcelona · In progress</div>
+                        </div>
+                        <div class="cv-item">
+                            <div class="cv-item__head">Compulsory Secondary Education (ESO)<span class="cv-item__date">2023 – 2024</span></div>
+                            <div class="cv-item__place">Colegio María Inmaculada Carmelitas Vedruna, Vigo</div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <!-- Same terminal as the home page (js/modules/terminal.js) -->
+            <div class="terminal" data-terminal aria-label="Interactive terminal">
+                <div class="terminal__bar">
+                    <span>maru@cv:~</span>
+                    <span>type "help"</span>
+                </div>
+                <div class="terminal__body">
+                    <div class="terminal__output"></div>
+                    <div class="terminal__input-row">
+                        <span class="terminal__prompt">maru@portfolio:~$</span>
+                        <input type="text" class="terminal__input" aria-label="Terminal command" autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+                <div class="terminal__chips">
+                    <button type="button" class="terminal__chip" data-command="whoami">whoami</button>
+                    <button type="button" class="terminal__chip" data-command="skills">skills</button>
+                    <button type="button" class="terminal__chip" data-command="contact">contact</button>
+                    <button type="button" class="terminal__chip" data-command="cv">cv</button>
+                    <button type="button" class="terminal__chip" data-command="clear">clear</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer__content">
+            <p>&copy; 2026 Joao Daniel De Paiva Oliveira · Maru</p>
+            <div class="footer__links">
+                <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:joaodaniel.jd@icloud.com">Email</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV - Joao Daniel de Paiva Oliveira</title>
+<!-- Versión web (sin dirección ni teléfono). CV en el formato de la presentación "TIPS – Cómo hacer un CV profesional" (Digitech), sin foto.
+     Columna izquierda: Datos personales · Formación complementaria · Idiomas
+     Columna derecha:   Introducción · Habilidades técnicas · Información académica (sin experiencia profesional, a petición de Dani) -->
+<style>
+  :root {
+    --azul: #1d8fd1;
+    --azul-osc: #0f3a5c;
+    --texto: #1f2937;
+    --suave: #5b6675;
+    --caja: #f2f4f7;
+    --linea: #dde3ea;
+  }
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    color: var(--texto);
+    font-size: 9.6pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hoja {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 13mm 12mm;
+    display: grid;
+    grid-template-columns: 62mm 1fr;
+    column-gap: 9mm;
+  }
+  .lateral { border-right: 2px solid var(--azul); padding-right: 7mm; }
+
+  /* Encabezado (en el sitio de la foto) */
+  .encabezado { margin-bottom: 7mm; }
+  .encabezado h1 {
+    font-size: 19pt; line-height: 1.12; font-weight: 800; color: var(--azul-osc);
+  }
+  .encabezado h1 span { color: var(--azul); display: block; }
+  .encabezado .rol {
+    margin-top: 2.5mm; font-size: 9.6pt; font-weight: 600; color: var(--suave);
+  }
+
+  h2 {
+    font-size: 8.4pt; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+    color: var(--azul-osc); margin-bottom: 2mm;
+  }
+  .bloque { margin-bottom: 6mm; }
+  .caja { background: var(--caja); border-left: 3px solid var(--azul); padding: 2.6mm 3mm; border-radius: 1.5mm; }
+
+  /* Datos personales */
+  .dato { margin-bottom: 1.8mm; }
+  .dato:last-child { margin-bottom: 0; }
+  .dato b { display: block; font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.4px; color: var(--suave); }
+  .dato a { color: var(--texto); text-decoration: none; }
+
+  /* Idiomas */
+  .idioma { display: flex; justify-content: space-between; padding: 1.2mm 0; border-bottom: 1px dashed #c9d2dd; }
+  .idioma:last-child { border-bottom: 0; }
+  .idioma span:last-child { font-weight: 700; color: var(--azul); font-size: 8.6pt; }
+
+  /* Columna derecha */
+  .intro { text-align: justify; }
+  .habilidades { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 5mm; }
+  .habilidades div b { display: block; font-size: 8.4pt; color: var(--azul-osc); }
+  .habilidades div { font-size: 9pt; }
+
+  .item { margin-bottom: 3.2mm; }
+  .item:last-child { margin-bottom: 0; }
+  .item-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .item-cab strong { font-size: 9.8pt; }
+  .fecha { font-size: 8.4pt; color: var(--suave); white-space: nowrap; font-weight: 600; }
+  .centro { color: var(--azul); font-weight: 600; font-size: 9pt; }
+  ul { margin: 1.2mm 0 0 4.2mm; }
+  li { margin-bottom: 0.8mm; }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <!-- ============ COLUMNA IZQUIERDA ============ -->
+  <aside class="lateral">
+
+    <!-- Encabezado: va donde la presentación pone la foto -->
+    <div class="encabezado">
+      <h1>Joao Daniel <span>de Paiva Oliveira</span></h1>
+      <div class="rol">Técnico en Sistemas Microinformáticos y Redes · Junior Developer</div>
+    </div>
+
+    <!-- 1. Datos personales -->
+    <section class="bloque">
+      <h2>Datos personales</h2>
+      <div class="caja">
+        <div class="dato"><b>Nombre completo</b>Joao Daniel de Paiva Oliveira</div>
+        <div class="dato"><b>Ubicación</b>Barcelona, España</div>
+        <div class="dato"><b>Correo electrónico</b><a href="mailto:joaodaniel.jd@icloud.com">joaodaniel.jd@icloud.com</a></div>
+        <div class="dato"><b>GitHub</b><a href="https://github.com/jdanioliv">github.com/jdanioliv</a></div>
+        <div class="dato"><b>Disponibilidad</b>Incorporación inmediata</div>
+      </div>
+    </section>
+
+    <!-- 2. Formación complementaria -->
+    <section class="bloque">
+      <h2>Formación complementaria</h2>
+      <div class="caja">
+        <div class="item">
+          <div class="item-cab"><strong>CS50: Introduction to Computer Science</strong></div>
+          <div class="centro">Harvard University · 2025</div>
+          <div>Algoritmos, estructuras de datos, gestión de memoria en C, SQL y Python.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Idiomas -->
+    <section class="bloque">
+      <h2>Idiomas</h2>
+      <div class="caja">
+        <div class="idioma"><span>Inglés</span><span>Nativo</span></div>
+        <div class="idioma"><span>Portugués</span><span>Nativo</span></div>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- ============ COLUMNA DERECHA ============ -->
+  <main>
+
+    <!-- 5. Introducción -->
+    <section class="bloque">
+      <h2>Introducción</h2>
+      <div class="caja intro">
+        Estudiante de 2.º de Sistemas Microinformáticos y Redes en Digitech FP, con formación en Ciencias de la Computación (Harvard CS50).
+        Perfil analítico y resolutivo, con facilidad para aprender nuevas tecnologías y buena comunicación con las personas.
+        Me interesa el soporte técnico, la administración de sistemas y el desarrollo. Trilingüe (inglés, portugués y español),
+        trabajo bien en equipo y en entornos internacionales.
+      </div>
+    </section>
+
+    <!-- 6. Habilidades técnicas -->
+    <section class="bloque">
+      <h2>Habilidades técnicas</h2>
+      <div class="caja habilidades">
+        <div><b>Programación y web</b>Python, Java, JavaScript, HTML5, CSS3, C++, Git / GitHub</div>
+        <div><b>Bases de datos</b>SQL (bases de datos relacionales)</div>
+        <div><b>Sistemas operativos</b>Windows 10/11, Windows Server 2022, Ubuntu / Debian Linux</div>
+        <div><b>Administración</b>Active Directory (usuarios, grupos y permisos), PowerShell, Bash</div>
+        <div><b>Redes</b>Redes locales LAN / WLAN, direccionamiento IPv4, DNS</div>
+        <div><b>Hardware</b>Montaje, mantenimiento y diagnóstico de equipos; instalación, particionado y clonación de SO</div>
+        <div><b>Virtualización</b>VirtualBox</div>
+        <div><b>Ofimática</b>Excel, Google Sheets, Word, Google Docs, PowerPoint, Outlook</div>
+      </div>
+    </section>
+
+    <!-- 7. Información académica -->
+    <section class="bloque">
+      <h2>Información académica</h2>
+      <div class="caja">
+        <div class="item">
+          <div class="item-cab"><strong>CFGM Sistemas Microinformáticos y Redes (SMR)</strong><span class="fecha">2025 – 2027</span></div>
+          <div class="centro">Digitech FP, Barcelona · En curso</div>
+          <div>Montaje y mantenimiento de equipos, sistemas operativos en red, servicios de red, redes locales, seguridad informática y aplicaciones web.</div>
+        </div>
+        <div class="item">
+          <div class="item-cab"><strong>Educación Secundaria Obligatoria (ESO)</strong><span class="fecha">2023 – 2024</span></div>
+          <div class="centro">Colegio María Inmaculada Carmelitas Vedruna, Vigo</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

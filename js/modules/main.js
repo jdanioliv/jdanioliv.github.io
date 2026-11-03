@@ -1,71 +1,88 @@
-// 1. TAB SWITCHER (CAMBIADOR DE PESTAÑAS DEL LAB)
+// 1. MOBILE MENU
+// Under 900px the nav links are hidden; the "Menu" button shows/hides them.
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
 
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('navbar__links--open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.textContent = isOpen ? 'Close' : 'Menu';
+    });
+
+    // Close the menu after choosing a section
+    navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('navbar__links--open');
+            navToggle.setAttribute('aria-expanded', false);
+            navToggle.textContent = 'Menu';
+        });
+    });
+}
+
+
+// 2. LAB TABS
 const tabButtons = document.querySelectorAll('.lab-tab');
 const tabPanels = document.querySelectorAll('.lab-panel');
 
-// En Python: for button in tabButtons:
-tabButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // Quitamos la clase activa de todos los botones y paneles
-        tabButtons.forEach((btn) => btn.classList.remove('lab-tab--active'));
-        tabPanels.forEach((panel) => panel.classList.remove('lab-panel--active'));
-
-        // Activamos el botón pulsado
-        button.classList.add('lab-tab--active');
-
-        // Mostramos el panel cuyo ID coincide con data-target
-        const targetId = button.dataset.target;
-        const targetPanel = document.getElementById(targetId);
-
-        if (targetPanel) {
-            targetPanel.classList.add('lab-panel--active');
-        }
+function openTab(targetId) {
+    // Python: for button in tabButtons: ...
+    tabButtons.forEach((button) => {
+        button.classList.toggle('lab-tab--active', button.dataset.target === targetId);
     });
+    tabPanels.forEach((panel) => {
+        panel.classList.toggle('lab-panel--active', panel.id === targetId);
+    });
+
+    // Python is only downloaded the first time its tab is opened
+    if (targetId === 'app-python') {
+        loadPyScriptEngine();
+    }
+}
+
+tabButtons.forEach((button) => {
+    button.addEventListener('click', () => openTab(button.dataset.target));
 });
 
-// 2. MINI-APP ANALIZADOR DE TEXTO Y DATOS EN TIEMPO REAL
-const textInput = document.getElementById('analyzer-input');
-const charCountEl = document.getElementById('stat-chars');
-const noSpacesCountEl = document.getElementById('stat-no-spaces');
-const wordCountEl = document.getElementById('stat-words');
-const readTimeEl = document.getElementById('stat-time');
-const clearBtn = document.getElementById('analyzer-clear-btn');
+// Links like "Try it" in the Projects section open a specific tab
+document.querySelectorAll('[data-open-tab]').forEach((link) => {
+    link.addEventListener('click', () => openTab(link.dataset.openTab));
+});
 
-// Verificamos que el textarea exista en la página antes de conectar eventos
+
+// 3. MINI APP: TEXT ANALYZER
+const textInput = document.getElementById('analyzer-input');
+
 if (textInput) {
-    // En Python: def updateTextStats():
+    const charCountEl = document.getElementById('stat-chars');
+    const noSpacesCountEl = document.getElementById('stat-no-spaces');
+    const wordCountEl = document.getElementById('stat-words');
+    const readTimeEl = document.getElementById('stat-time');
+    const clearBtn = document.getElementById('analyzer-clear-btn');
+
     function updateTextStats() {
         const rawText = textInput.value;
 
-        // Caracteres totales (Python: len(rawText))
+        // Python: len(rawText)
         const charCount = rawText.length;
-
-        // Caracteres sin espacios (elimina espacios y saltos de línea)
+        // Remove spaces and line breaks before counting
         const noSpacesCount = rawText.replace(/\s/g, '').length;
 
-        // Conteo de palabras (Python: len(rawText.strip().split()))
+        // Python: len(rawText.split())
         const cleanedText = rawText.trim();
-        let wordCount = 0;
-        if (cleanedText !== '') {
-            wordCount = cleanedText.split(/\s+/).length;
-        }
+        const wordCount = cleanedText === '' ? 0 : cleanedText.split(/\s+/).length;
 
-        // Tiempo de lectura estimado en segundos (200 palabras/minuto)
+        // Reading time at 200 words per minute
         const readingTimeSeconds = Math.ceil((wordCount / 200) * 60);
 
-        // Actualizamos los números en el HTML
         charCountEl.textContent = charCount;
-        if (noSpacesCountEl) {
-            noSpacesCountEl.textContent = noSpacesCount;
-        }
+        noSpacesCountEl.textContent = noSpacesCount;
         wordCountEl.textContent = wordCount;
         readTimeEl.textContent = `${readingTimeSeconds}s`;
     }
 
-    // Escuchamos cada tecla que el usuario escribe o borra
     textInput.addEventListener('input', updateTextStats);
 
-    // Botón para vaciar el texto y reiniciar a 0
     clearBtn.addEventListener('click', () => {
         textInput.value = '';
         updateTextStats();
@@ -74,11 +91,11 @@ if (textInput) {
 }
 
 
-// 3. MINI-APP LAZY LOADER PARA PYSCRIPT
+// 4. MINI APP: PYTHON LOG ANALYZER (loads PyScript only when needed)
 let isPyScriptLoaded = false;
 
 function loadPyScriptEngine() {
-    // Evita descargar Python más de una vez
+    // Don't download Python twice
     if (isPyScriptLoaded) return;
     isPyScriptLoaded = true;
 
@@ -87,35 +104,124 @@ function loadPyScriptEngine() {
     const loaderText = document.getElementById('py-loader-text');
     const workspace = document.getElementById('py-workspace');
 
-    // Estado: Cargando
-    statusBadge.textContent = 'Motor Python: Cargando...';
-    statusBadge.className = 'engine-badge engine-badge--loading';
+    statusBadge.textContent = 'Python: loading...';
+    statusBadge.className = 'badge badge--loading';
 
-    // Inyectamos el motor de PyScript en el <head>
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://pyscript.net/releases/2024.1.1/core.js';
+    // PyScript engine
+    const engine = document.createElement('script');
+    engine.type = 'module';
+    engine.src = 'https://pyscript.net/releases/2024.1.1/core.js';
 
-    // Conectamos nuestro archivo de Python real (python/log_analyzer.py)
-    const pyScriptTag = document.createElement('script');
-    pyScriptTag.type = 'py';
-    pyScriptTag.src = './python/log_analyzer.py';
+    // My Python file (python/log_analyzer.py)
+    const pythonFile = document.createElement('script');
+    pythonFile.type = 'py';
+    pythonFile.src = './python/log_analyzer.py';
 
-    // Estado: Listo
     window.addEventListener('py:ready', () => {
-        statusBadge.textContent = 'Motor Python 3.11: Activo';
-        statusBadge.className = 'engine-badge engine-badge--ready';
-        loaderBox.style.display = 'none';
-        workspace.classList.remove('py-workspace--hidden');
+        statusBadge.textContent = 'Python: ready';
+        statusBadge.className = 'badge badge--ready';
+        loaderBox.classList.add('hidden');
+        workspace.classList.remove('hidden');
     });
 
-    // Estado: Error de red
-    script.addEventListener('error', () => {
-        statusBadge.textContent = 'Error de Red';
-        statusBadge.className = 'engine-badge engine-badge--error';
-        loaderText.textContent = 'Error al descargar PyScript. Verifica tu conexión a internet.';
+    engine.addEventListener('error', () => {
+        statusBadge.textContent = 'Python: error';
+        statusBadge.className = 'badge badge--error';
+        loaderText.textContent = 'Could not download PyScript. Check your internet connection.';
     });
 
-    document.head.appendChild(script);
-    document.body.appendChild(pyScriptTag);
+    document.head.appendChild(engine);
+    document.body.appendChild(pythonFile);
+}
+
+
+// 5. MINI APP: TASK MANAGER (saved in localStorage)
+const todoForm = document.getElementById('todo-form');
+
+if (todoForm) {
+    const todoInput = document.getElementById('todo-input');
+    const todoList = document.getElementById('todo-list');
+    const todoBadge = document.getElementById('todo-count-badge');
+    const STORAGE_KEY = 'portfolio-tasks';
+
+    // Each task is an object: { text: "...", done: false }
+    // Python: tasks = json.loads(saved) if saved else []
+    function loadTasks() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        } catch {
+            return [];
+        }
+    }
+
+    function saveTasks(tasks) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+        } catch {
+            // Storage blocked (private mode): the list still works until the page closes
+        }
+    }
+
+    let tasks = loadTasks();
+
+    function renderTasks() {
+        todoList.innerHTML = '';
+
+        if (tasks.length === 0) {
+            const empty = document.createElement('li');
+            empty.className = 'todo__empty';
+            empty.textContent = 'No tasks yet. Add one above.';
+            todoList.appendChild(empty);
+        }
+
+        tasks.forEach((task, index) => {
+            const item = document.createElement('li');
+            if (task.done) item.classList.add('todo__item--done');
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `task-${index}`;
+            checkbox.checked = task.done;
+            checkbox.addEventListener('change', () => {
+                task.done = checkbox.checked;
+                saveTasks(tasks);
+                renderTasks();
+            });
+
+            const label = document.createElement('label');
+            label.htmlFor = checkbox.id;
+            label.textContent = task.text;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'todo__delete';
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.addEventListener('click', () => {
+                // Python: tasks.pop(index)
+                tasks.splice(index, 1);
+                saveTasks(tasks);
+                renderTasks();
+            });
+
+            item.append(checkbox, label, deleteBtn);
+            todoList.appendChild(item);
+        });
+
+        // Python: sum(1 for t in tasks if not t["done"])
+        const pending = tasks.filter((task) => !task.done).length;
+        todoBadge.textContent = `${pending} pending`;
+    }
+
+    todoForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = todoInput.value.trim();
+        if (text === '') return;
+
+        tasks.push({ text: text, done: false });
+        saveTasks(tasks);
+        renderTasks();
+        todoInput.value = '';
+    });
+
+    renderTasks();
 }
