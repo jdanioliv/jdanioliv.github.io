@@ -1,8 +1,5 @@
-/* =========================================================
-   1. DESIGN TOKENS
-   Deep red as the main colour; green, cyan and gold only as
-   small accents (terminal, links, highlights).
-   ========================================================= */
+/* 
+   1. DESIGN TOKENS (Deep red as the main colour; green, cyan and gold only as small accents (terminal, links, highlights)). */
 :root {
     --bg: #100d0e;
     --surface: #181314;
@@ -28,9 +25,7 @@
     --ease: 0.2s ease;
 }
 
-/* =========================================================
-   2. RESET & BASE
-   ========================================================= */
+/* 2. RESET & BASE */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -85,9 +80,7 @@ code {
     outline-offset: 3px;
 }
 
-/* =========================================================
-   3. HEADER & NAVIGATION (with mobile menu)
-   ========================================================= */
+/* 3. HEADER & NAVIGATION including mobile menu for smaller screens */
 .site-header {
     position: sticky;
     top: 0;
@@ -147,9 +140,7 @@ code {
     cursor: pointer;
 }
 
-/* =========================================================
-   4. BUTTONS
-   ========================================================= */
+/* 4. BUTTONS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -185,9 +176,7 @@ code {
     font-size: 0.85rem;
 }
 
-/* =========================================================
-   5. HERO
-   ========================================================= */
+/* 5. HERO */
 .hero {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -234,9 +223,7 @@ code {
     flex-wrap: wrap;
 }
 
-/* =========================================================
-   6. TERMINAL (hero + CV page)
-   ========================================================= */
+/* 6. TERMINAL (hero + CV page) */
 .terminal {
     background-color: #0b0909;
     border: 1px solid var(--line);
@@ -315,9 +302,7 @@ code {
 
 .terminal__chip:hover { border-color: var(--cyan); }
 
-/* =========================================================
-   7. SECTIONS (shared)
-   ========================================================= */
+/* 7. SECTIONS (shared) */
 .section {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -351,9 +336,7 @@ code {
     margin-bottom: 2.5rem;
 }
 
-/* =========================================================
-   8. ABOUT
-   ========================================================= */
+/* 8. ABOUT */
 .about__grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -407,9 +390,7 @@ code {
 
 .path__step strong { color: var(--text); }
 
-/* =========================================================
-   9. SKILLS (grouped lists, no progress bars)
-   ========================================================= */
+/* 9. SKILLS (grouped lists, no progress bars) */
 .skills__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -444,9 +425,7 @@ code {
     color: var(--muted);
 }
 
-/* =========================================================
-   10. PROJECTS
-   ========================================================= */
+/* 10. PROJECTS */
 .projects__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -494,9 +473,7 @@ code {
 .project-card__links a { color: var(--cyan); }
 .project-card__links a:hover { text-decoration: underline; }
 
-/* =========================================================
-   11. LAB (tabs + mini apps)
-   ========================================================= */
+/* 11. LAB (tabs + mini apps) */
 .lab-tabs {
     display: flex;
     gap: 0.5rem;
@@ -703,9 +680,7 @@ code {
     font-size: 0.9rem;
 }
 
-/* =========================================================
-   12. LEARNING (certificates & courses)
-   ========================================================= */
+/* 12. LEARNING (certificates & courses) */
 .learning__grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -777,9 +752,7 @@ code {
 .status--next { color: var(--cyan); }
 .status--later { color: var(--muted); }
 
-/* =========================================================
-   13. FOOTER
-   ========================================================= */
+/* 13. FOOTER */
 .site-footer {
     border-top: 1px solid var(--line);
     padding: 2.5rem 1.25rem;
@@ -804,9 +777,7 @@ code {
 
 .footer__links a { color: var(--cyan); }
 
-/* =========================================================
-   14. CV PAGE (cv.html)
-   ========================================================= */
+/* 14. CV PAGE (cv.html) */
 .cv-page__head {
     display: flex;
     justify-content: space-between;
@@ -896,9 +867,7 @@ code {
 .cv-skill { margin-bottom: 0.6rem; }
 .cv-skill strong { display: block; font-size: 0.85rem; }
 
-/* =========================================================
-   15. COURSE PAGES (courses/*.html)
-   ========================================================= */
+/* 15. COURSE PAGES (courses/*.html) */
 .course-head { margin-bottom: 2.5rem; }
 
 .course-head__status {
@@ -990,9 +959,7 @@ code {
     font-size: 0.92rem;
 }
 
-/* =========================================================
-   16. RESPONSIVE (tablet & mobile)
-   ========================================================= */
+/* 16. RESPONSIVE (tablet & mobile) */
 @media (max-width: 900px) {
     .hero,
     .about__grid,
