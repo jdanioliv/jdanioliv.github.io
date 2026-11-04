@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV - Joao Daniel de Paiva Oliveira</title>
+<!-- Web CV (no street address or phone). Same palette as the portfolio, on white for print.
+     Layout from the Digitech "TIPS – Cómo hacer un CV profesional" slides, without a photo:
+     left = personal details, additional training, languages · right = introduction, skills, education -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #b5122f;        /* portfolio deep red */
+    --ink: #1a1314;        /* portfolio background, used as text colour */
+    --text: #2b2425;
+    --muted: #6e6462;
+    --panel: #f8f4f3;      /* warm off-white boxes */
+    --line: #e7dedc;
+    --link: #127f8f;       /* portfolio cyan, darkened for white paper */
+  }
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    font-size: 9.4pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hoja {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 13mm 13mm 12mm;
+    border-top: 5mm solid var(--red);
+    display: grid;
+    grid-template-columns: 62mm 1fr;
+    column-gap: 9mm;
+  }
+  .lateral { border-right: 1.5px solid var(--line); padding-right: 7mm; }
+
+  /* Header (where the slides put the photo) */
+  .encabezado { margin-bottom: 7mm; }
+  .encabezado h1 {
+    font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    font-size: 21pt; line-height: 1.02; font-weight: 800; letter-spacing: -0.4px; color: var(--ink);
+  }
+  .encabezado h1 span { color: var(--red); display: block; }
+  .encabezado .rol {
+    margin-top: 3mm; font-size: 9.2pt; font-weight: 600; color: var(--muted);
+  }
+
+  /* Section titles with the same red square as the website */
+  h2 {
+    font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    font-size: 9.6pt; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase;
+    color: var(--ink); margin-bottom: 2.2mm;
+    display: flex; align-items: flex-start; gap: 2mm;
+  }
+  h2::before { content: ''; width: 2.4mm; height: 2.4mm; margin-top: 0.85mm; background: var(--red); flex-shrink: 0; }
+  .bloque { margin-bottom: 6mm; }
+  .caja { background: var(--panel); border-left: 2.5px solid var(--red); padding: 2.6mm 3mm; border-radius: 1mm; }
+
+  /* Personal details */
+  .dato { margin-bottom: 1.8mm; }
+  .dato:last-child { margin-bottom: 0; }
+  .dato b { display: block; font-size: 7.4pt; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); font-weight: 600; }
+  .dato a { color: var(--link); text-decoration: none; }
+
+  /* Languages */
+  .idioma { display: flex; justify-content: space-between; padding: 1.2mm 0; border-bottom: 1px dashed var(--line); }
+  .idioma:last-child { border-bottom: 0; }
+  .idioma span:last-child { font-weight: 600; color: var(--red); font-size: 8.6pt; }
+
+  /* Right column */
+  .intro { text-align: justify; }
+  .habilidades { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2mm 5mm; }
+  .habilidades div b { display: block; font-size: 8.4pt; color: var(--ink); font-weight: 600; }
+  .habilidades div { font-size: 8.9pt; }
+
+  .item { margin-bottom: 3.2mm; }
+  .item:last-child { margin-bottom: 0; }
+  .item-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .item-cab strong { font-size: 9.6pt; font-weight: 600; color: var(--ink); }
+  .fecha { font-size: 8.2pt; color: var(--muted); white-space: nowrap; font-weight: 600; }
+  .centro { color: var(--red); font-weight: 600; font-size: 8.9pt; }
+  ul { margin: 1.2mm 0 0 4.2mm; }
+  li { margin-bottom: 0.8mm; }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <!-- ============ COLUMNA IZQUIERDA ============ -->
+  <aside class="lateral">
+
+    <!-- Encabezado: va donde la presentación pone la foto -->
+    <div class="encabezado">
+      <h1>Joao Daniel <span>de Paiva Oliveira</span></h1>
+      <div class="rol">Técnico en Sistemas Microinformáticos y Redes · Junior Developer</div>
+    </div>
+
+    <!-- 1. Datos personales -->
+    <section class="bloque">
+      <h2>Datos personales</h2>
+      <div class="caja">
+        <div class="dato"><b>Nombre completo</b>Joao Daniel de Paiva Oliveira</div>
+        <div class="dato"><b>Ubicación</b>Barcelona, España</div>
+        <div class="dato"><b>Correo electrónico</b><a href="mailto:joaodaniel.jd@icloud.com">joaodaniel.jd@icloud.com</a></div>
+        <div class="dato"><b>Portfolio</b><a href="https://jdanioliv.github.io/">jdanioliv.github.io</a></div>
+        <div class="dato"><b>GitHub</b><a href="https://github.com/jdanioliv">github.com/jdanioliv</a></div>
+        <div class="dato"><b>Busco</b>Prácticas de FP remuneradas y puestos junior</div>
+      </div>
+    </section>
+
+    <!-- 2. Formación complementaria -->
+    <section class="bloque">
+      <h2>Formación complementaria</h2>
+      <div class="caja">
+        <div class="item">
+          <div class="item-cab"><strong>CS50: Introduction to Computer Science</strong></div>
+          <div class="centro">Harvard University · 2025</div>
+          <div>Algoritmos, estructuras de datos, gestión de memoria en C, SQL y Python.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Idiomas -->
+    <section class="bloque">
+      <h2>Idiomas</h2>
+      <div class="caja">
+        <div class="idioma"><span>Inglés</span><span>Nativo</span></div>
+        <div class="idioma"><span>Portugués</span><span>Nativo</span></div>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- ============ COLUMNA DERECHA ============ -->
+  <main>
+
+    <!-- 5. Introducción -->
+    <section class="bloque">
+      <h2>Introducción</h2>
+      <div class="caja intro">
+        Estudiante de 2.º de Sistemas Microinformáticos y Redes en Digitech FP, con formación en Ciencias de la Computación (Harvard CS50).
+        Perfil analítico y resolutivo, con facilidad para aprender nuevas tecnologías y buena comunicación con las personas.
+        Me interesa el soporte técnico, la administración de sistemas y el desarrollo. Trilingüe (inglés, portugués y español),
+        trabajo bien en equipo y en entornos internacionales.
+      </div>
+    </section>
+
+    <!-- 6. Habilidades técnicas -->
+    <section class="bloque">
+      <h2>Habilidades técnicas</h2>
+      <div class="caja habilidades">
+        <div><b>Programación y web</b>Python, Java, JavaScript, HTML5, CSS3, C++, Git / GitHub</div>
+        <div><b>Bases de datos</b>SQL (bases de datos relacionales)</div>
+        <div><b>Sistemas operativos</b>Windows 10/11, Windows Server 2022, Ubuntu / Debian Linux</div>
+        <div><b>Administración</b>Active Directory (usuarios, grupos y permisos), PowerShell, Bash</div>
+        <div><b>Redes</b>Redes locales LAN / WLAN, direccionamiento IPv4, DNS</div>
+        <div><b>Hardware</b>Montaje, mantenimiento y diagnóstico de equipos; instalación, particionado y clonación de SO</div>
+        <div><b>Virtualización</b>VirtualBox</div>
+        <div><b>Ofimática</b>Excel, Google Sheets, Word, Google Docs, PowerPoint, Outlook</div>
+      </div>
+    </section>
+
+    <!-- 7. Información académica -->
+    <section class="bloque">
+      <h2>Información académica</h2>
+      <div class="caja">
+        <div class="item">
+          <div class="item-cab"><strong>CFGM Sistemas Microinformáticos y Redes (SMR)</strong><span class="fecha">2025 – 2027</span></div>
+          <div class="centro">Digitech FP, Barcelona · En curso</div>
+          <div>Montaje y mantenimiento de equipos, sistemas operativos en red, servicios de red, redes locales, seguridad informática y aplicaciones web.</div>
+        </div>
+        <div class="item">
+          <div class="item-cab"><strong>Educación Secundaria Obligatoria (ESO)</strong><span class="fecha">2023 – 2024</span></div>
+          <div class="centro">Colegio María Inmaculada Carmelitas Vedruna, Vigo</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
