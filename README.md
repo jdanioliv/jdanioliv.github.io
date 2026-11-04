@@ -2,15 +2,15 @@
 
 Hi! I'm **Joao Daniel De Paiva Oliveira** (*Maru* online), an IT systems (**SMR**) student in Barcelona moving into software development (**DAM**), with the long-term goal of working with **Python, data and AI**.
 
-This repository is the source code of my personal portfolio, built from scratch with HTML, CSS and JavaScript and hosted on GitHub Pages.
+This repository is the source code of my personal portfolio, built with plain HTML, CSS and JavaScript (no frameworks) and hosted on GitHub Pages.
 
-**Live site:** https://jdanioliv.github.io/web-portflio/
+**Live site:** https://jdanioliv.github.io/
 
 ---
 
 ## What's inside
 
-* **Home page** (`index.html`): about me, skills, projects, a learning section and a small interactive terminal.
+* **Home page** (`index.html`): about me, skills, projects, a learning section, contact details and a small interactive terminal.
 * **Interactive CV** (`cv.html`): my CV as a web page, with the same terminal and PDF downloads in English and Spanish (`assets/cv/`).
 * **Lab**: three mini apps that run in the browser:
   * Text analyzer (JavaScript)
@@ -36,7 +36,8 @@ js/modules/terminal.js  Interactive terminal (home + CV)
 python/log_analyzer.py  Log analyzer used by the Python lab app
 courses/              One page per course
 assets/cv/            CV PDFs (EN / ES) and the HTML they're printed from
-assets/img/           Images (CS50x certificate)
+assets/img/           CS50x certificate, favicon and link preview image
+favicon.ico           Tab icon for browsers that look for it at the site root
 ```
 
 ## Roadmap
@@ -44,8 +45,7 @@ assets/img/           Images (CS50x certificate)
 - [x] Project setup, Git and documentation
 - [x] Responsive home page
 - [x] Lab with JavaScript and Python mini apps
-- [x] Redesign in English with an interactive CV
-- **On hold:** user accounts (sign up / login), a per-user database and the security work that goes with them. Paused to focus on new projects.
+- [x] Interactive CV
 
 ## Updating the CV PDFs
 
