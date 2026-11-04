@@ -187,6 +187,12 @@ code {
     align-items: center;
 }
 
+/* Let these columns shrink: otherwise the terminal makes the page wider than small phones */
+.hero > *,
+.cv-layout > * {
+    min-width: 0;
+}
+
 .hero__handle {
     font-family: var(--font-mono);
     font-size: 0.9rem;
@@ -217,7 +223,8 @@ code {
 
 .hero__subtitle strong { color: var(--text); font-weight: 600; }
 
-.hero__actions {
+.hero__actions,
+.contact__actions {
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
@@ -1005,6 +1012,15 @@ code {
     }
 
     .nav-link--cv { border-bottom: none; }
+}
+
+/* iPhones zoom in on the page when you tap a field with text under 16px */
+@media (max-width: 900px), (pointer: coarse) {
+    .terminal__input,
+    .lab-textarea,
+    .lab-input {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 600px) {

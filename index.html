@@ -11,6 +11,20 @@
 
     <title>Joao Daniel De Paiva Oliveira | Portfolio</title>
 
+    <link rel="icon" href="assets/img/favicon-180.png" type="image/png" sizes="180x180">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+
+    <!-- Preview shown when the link is shared (WhatsApp, LinkedIn...) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Joao Daniel De Paiva Oliveira | Portfolio">
+    <meta property="og:description" content="IT systems student in Barcelona, moving into software development.">
+    <meta property="og:url" content="https://jdanioliv.github.io/">
+    <meta property="og:image" content="https://jdanioliv.github.io/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="css/index.css">
     <script src="js/modules/terminal.js" defer></script>
     <script src="js/modules/main.js" defer></script>
@@ -30,6 +44,7 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#lab" class="nav-link">Lab</a></li>
                 <li><a href="#learning" class="nav-link">Learning</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="cv.html" class="nav-link nav-link--cv">CV</a></li>
             </ul>
         </nav>
@@ -88,7 +103,7 @@
                 <div class="about__text">
                     <p>
                         I'm in my second year of <strong>SMR (Microcomputer Systems and Networks)</strong> at Digitech FP in Barcelona:
-                        hardware, operating systems, networks and security. That gave me a solid base, but what I enjoy most is writing code.
+                        hardware, operating systems, networks and security. That gave me a solid base, and my next step is software development.
                     </p>
                     <p>
                         I finished Harvard's <strong>CS50x</strong> and I'm working through the rest of the CS50 courses.
@@ -128,7 +143,7 @@
                     <ul class="skills__list">
                         <li><span class="skills__name">Python</span><span class="skills__note">CS50 problem sets, the log analyzer on this site</span></li>
                         <li><span class="skills__name">JavaScript</span><span class="skills__note">The lab apps and terminal on this site</span></li>
-                        <li><span class="skills__name">HTML &amp; CSS</span><span class="skills__note">This site, built from scratch</span></li>
+                        <li><span class="skills__name">HTML &amp; CSS</span><span class="skills__note">This site and my school web exercises</span></li>
                         <li><span class="skills__name">Java</span><span class="skills__note">Object-oriented basics, preparing for DAM</span></li>
                         <li><span class="skills__name">Lua / Luau</span><span class="skills__note">Making games in Roblox Studio</span></li>
                         <li><span class="skills__name">SQL</span><span class="skills__note">Relational databases in CS50</span></li>
@@ -160,16 +175,16 @@
         <!-- PROJECTS -->
         <section id="projects" class="section">
             <h2 class="section__title">Projects</h2>
-            <p class="section__intro">Small things I built and can explain line by line.</p>
+            <p class="section__intro">Small projects I've worked on while learning.</p>
 
             <div class="projects__grid">
                 <article class="project-card">
                     <span class="project-card__tech">Python · regex · PyScript</span>
                     <h3>Server log analyzer</h3>
-                    <p>Reads HTTP server logs, counts requests per IP and status code, and flags repeated 4xx/5xx errors as a possible brute-force attempt. It runs in the browser with PyScript.</p>
+                    <p>Reads HTTP server logs, counts requests per IP and status code, lists every error, and flags an IP with repeated 401/403 responses as a possible brute-force attempt. It runs in the browser with PyScript.</p>
                     <div class="project-card__links">
                         <a href="#lab" data-open-tab="app-python">Try it</a>
-                        <a href="https://github.com/jdanioliv/web-portflio/blob/main/python/log_analyzer.py" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/python/log_analyzer.py" target="_blank" rel="noopener noreferrer">Code</a>
                     </div>
                 </article>
 
@@ -179,16 +194,16 @@
                     <p>My CV as a web page, with a small terminal you can type commands into, and the PDF to download in English or Spanish.</p>
                     <div class="project-card__links">
                         <a href="cv.html">Open</a>
-                        <a href="https://github.com/jdanioliv/web-portflio/blob/main/cv.html" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/cv.html" target="_blank" rel="noopener noreferrer">Code</a>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <span class="project-card__tech">HTML · CSS · JavaScript</span>
                     <h3>This portfolio</h3>
-                    <p>Built from scratch without frameworks: responsive layout, a mobile menu, a terminal and three mini apps, hosted on GitHub Pages.</p>
+                    <p>Built with plain HTML, CSS and JavaScript, no frameworks: responsive layout, a mobile menu, a terminal and three mini apps, hosted on GitHub Pages.</p>
                     <div class="project-card__links">
-                        <a href="https://github.com/jdanioliv/web-portflio" target="_blank" rel="noopener noreferrer">Repository</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io" target="_blank" rel="noopener noreferrer">Repository</a>
                     </div>
                 </article>
             </div>
@@ -199,16 +214,16 @@
             <h2 class="section__title">Lab</h2>
             <p class="section__intro">Three mini apps that run right here in the browser.</p>
 
-            <div class="lab-tabs" role="tablist">
-                <button type="button" class="lab-tab lab-tab--active" data-target="app-analyzer">Text analyzer</button>
-                <button type="button" class="lab-tab" data-target="app-python">Log analyzer (Python)</button>
-                <button type="button" class="lab-tab" data-target="app-todo">Task manager</button>
+            <div class="lab-tabs" role="tablist" aria-label="Lab mini apps">
+                <button type="button" id="tab-analyzer" class="lab-tab lab-tab--active" role="tab" aria-selected="true" aria-controls="app-analyzer" data-target="app-analyzer">Text analyzer</button>
+                <button type="button" id="tab-python" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-python" data-target="app-python">Log analyzer (Python)</button>
+                <button type="button" id="tab-todo" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-todo" data-target="app-todo">Task manager</button>
             </div>
 
             <div class="lab-container">
 
                 <!-- MINI APP 1: TEXT ANALYZER -->
-                <div id="app-analyzer" class="lab-panel lab-panel--active">
+                <div id="app-analyzer" class="lab-panel lab-panel--active" role="tabpanel" aria-labelledby="tab-analyzer">
                     <div class="lab-panel__head">
                         <h3>Text analyzer</h3>
                         <p>Type or paste any text to count it live.</p>
@@ -227,7 +242,7 @@
                 </div>
 
                 <!-- MINI APP 2: PYTHON LOG ANALYZER -->
-                <div id="app-python" class="lab-panel">
+                <div id="app-python" class="lab-panel" role="tabpanel" aria-labelledby="tab-python">
                     <div class="lab-panel__head">
                         <h3>Server log analyzer</h3>
                         <span id="py-engine-status" class="badge">Python: not loaded</span>
@@ -255,7 +270,7 @@
                 </div>
 
                 <!-- MINI APP 3: TASK MANAGER -->
-                <div id="app-todo" class="lab-panel">
+                <div id="app-todo" class="lab-panel" role="tabpanel" aria-labelledby="tab-todo">
                     <div class="lab-panel__head">
                         <h3>Task manager</h3>
                         <span id="todo-count-badge" class="badge badge--ready">0 pending</span>
@@ -317,6 +332,19 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <h2 class="section__title">Contact</h2>
+            <p class="section__intro">
+                I'm open to paid internships (FP prácticas) and junior roles in Barcelona, in IT support, systems administration or software development.
+            </p>
+
+            <div class="contact__actions">
+                <a href="mailto:joaodaniel.jd@icloud.com" class="btn btn--primary">joaodaniel.jd@icloud.com</a>
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--secondary" download>Download CV</a>
             </div>
         </section>
     </main>

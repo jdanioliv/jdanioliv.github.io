@@ -16,8 +16,9 @@ const COMMANDS = {
               '2. Interactive CV\n' +
               '3. This portfolio\n' +
               'More details in the Projects section.',
-    contact: 'Email:  joaodaniel.jd@icloud.com\n' +
-             'GitHub: github.com/jdanioliv',
+    contact: 'Open to: paid internships (FP prácticas) and junior roles\n' +
+             'Email:   joaodaniel.jd@icloud.com\n' +
+             'GitHub:  github.com/jdanioliv',
 };
 
 // CV files offered by the "cv" command
@@ -95,6 +96,11 @@ function setUpTerminal(terminal) {
     if (terminal.dataset.autorun) {
         run(terminal.dataset.autorun);
     }
+
+    // The web fonts can change how lines wrap once they load, so scroll down again
+    document.fonts.ready.then(() => {
+        body.scrollTop = body.scrollHeight;
+    });
 }
 
 document.querySelectorAll('[data-terminal]').forEach(setUpTerminal);

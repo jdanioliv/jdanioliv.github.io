@@ -28,7 +28,9 @@ const tabPanels = document.querySelectorAll('.lab-panel');
 function openTab(targetId) {
     // Python: for button in tabButtons: ...
     tabButtons.forEach((button) => {
-        button.classList.toggle('lab-tab--active', button.dataset.target === targetId);
+        const isActive = button.dataset.target === targetId;
+        button.classList.toggle('lab-tab--active', isActive);
+        button.setAttribute('aria-selected', isActive);
     });
     tabPanels.forEach((panel) => {
         panel.classList.toggle('lab-panel--active', panel.id === targetId);
