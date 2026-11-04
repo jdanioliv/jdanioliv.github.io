@@ -17,6 +17,7 @@ This repository is the source code of my personal portfolio, built with plain HT
   * Server log analyzer (Python with PyScript, source in `python/log_analyzer.py`)
   * Task manager (JavaScript + `localStorage`)
 * **Course pages** (`courses/`): the CS50x certificate and the outlines of the courses I'm taking.
+* **Seven languages**: English, Español, Português, Italiano, Català, Deutsch and Français, with a language button on every page.
 * Responsive layout with a mobile menu.
 
 ## Stack
@@ -33,6 +34,8 @@ cv.html               Interactive CV
 css/index.css         All the styles
 js/modules/main.js    Mobile menu, lab tabs and mini apps
 js/modules/terminal.js  Interactive terminal (home + CV)
+js/modules/i18n.js    Language button and translation engine
+js/translations/      One file per language (es, pt, it, ca, de, fr)
 python/log_analyzer.py  Log analyzer used by the Python lab app
 courses/              One page per course
 assets/cv/            CV PDFs (EN / ES) and the HTML they're printed from
@@ -46,6 +49,21 @@ favicon.ico           Tab icon for browsers that look for it at the site root
 - [x] Responsive home page
 - [x] Lab with JavaScript and Python mini apps
 - [x] Interactive CV
+- [x] Seven languages
+
+## Languages
+
+English is written directly in the HTML and JavaScript. Every other language has a file in `js/translations/`, and only the one the visitor chooses is downloaded. Names like Python, Java or GitHub stay the same because the translation files simply don't translate them. Browser auto-translation is turned off (`translate="no"`), because Chrome turned "Python" into "pitón".
+
+The page chooses its language in this order: a `?lang=es` link, the visitor's last choice, the browser's language, then English. To send someone the site in a specific language, add `?lang=` and the code to the link: `es`, `pt`, `it`, `ca`, `de`, `fr` or `en`.
+
+**To change or add a text:**
+
+1. In the HTML, give the element a key: `<p data-i18n="about.p1">English text</p>`. For attributes, use `data-i18n-placeholder`, `data-i18n-aria-label`, `data-i18n-content` or `data-i18n-alt`.
+2. In JavaScript, use `t('some.key', 'English text')`.
+3. Add the same key to each file in `js/translations/`. A key that's missing just shows the English.
+
+**To add a language:** add it to `LANGUAGES` in `js/modules/i18n.js` and copy a file in `js/translations/` to the new code.
 
 ## Updating the CV PDFs
 
