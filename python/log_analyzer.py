@@ -8,6 +8,9 @@ LOG_PATTERN = re.compile(
     r'(?P<ip>\d+\.\d+\.\d+\.\d+).*?"(?P<method>GET|POST|PUT|DELETE)\s+(?P<path>\S+)\s+HTTP/.*?"\s+(?P<status>\d{3})'
 )
 
+# Rejected requests (401/403) from one IP that count as a possible brute-force attempt
+BRUTE_FORCE_THRESHOLD = 3
+
 def analyze_logs(event=None):
     raw_logs = document.querySelector("#py-log-input").value.strip()
     output_el = document.querySelector("#py-output-json")
@@ -20,6 +23,7 @@ def analyze_logs(event=None):
     ips = []
     statuses = []
     security_alerts = []
+    rejected_by_ip = Counter()
 
     for line in lines:
         match = LOG_PATTERN.search(line)
@@ -35,9 +39,14 @@ def analyze_logs(event=None):
             if status >= 400:
                 security_alerts.append(f"[{status}] {ip} -> {data['method']} {data['path']}")
 
+            # Count rejected requests per IP (a 500 is the server's fault, not an attack)
+            if status in (401, 403):
+                rejected_by_ip[ip] += 1
+
     ip_counts = Counter(ips)
     status_counts = Counter(statuses)
     top_ip, top_ip_hits = ip_counts.most_common(1)[0] if ip_counts else ("N/A", 0)
+    brute_force_ips = [ip for ip, count in rejected_by_ip.items() if count >= BRUTE_FORCE_THRESHOLD]
 
     report = {
         "total_lines_parsed": len(lines),
@@ -45,7 +54,8 @@ def analyze_logs(event=None):
         "status_code_distribution": dict(status_counts),
         "most_active_ip": {"ip": top_ip, "requests": top_ip_hits},
         "anomalies_detected": len(security_alerts),
-        "brute_force_suspected": len(security_alerts) >= 3,
+        "brute_force_suspected": len(brute_force_ips) > 0,
+        "brute_force_ips": brute_force_ips,
         "security_log_details": security_alerts
     }
 
