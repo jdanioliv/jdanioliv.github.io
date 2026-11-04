@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Joao Daniel De Paiva Oliveira (Maru): IT systems student in Barcelona, learning software development with Python.">
+    <meta name="description" content="Portfolio of Joao Daniel De Paiva Oliveira (Maru): IT systems student in Barcelona, learning software development with Python." data-i18n-content="home.description">
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <title>Joao Daniel De Paiva Oliveira | Portfolio</title>
+    <title data-i18n="home.title">Joao Daniel De Paiva Oliveira | Portfolio</title>
 
     <link rel="icon" href="assets/img/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -25,6 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
 
+    <script src="js/modules/i18n.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/modules/terminal.js" defer></script>
     <script src="js/modules/main.js" defer></script>
@@ -33,20 +37,23 @@
 
     <!-- HEADER & NAVIGATION -->
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="#home" class="navbar__logo">JD<span>.</span></a>
 
-            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-
             <ul class="navbar__links" id="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#lab" class="nav-link">Lab</a></li>
-                <li><a href="#learning" class="nav-link">Learning</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#lab" class="nav-link" data-i18n="nav.lab">Lab</a></li>
+                <li><a href="#learning" class="nav-link" data-i18n="nav.learning">Learning</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 <li><a href="cv.html" class="nav-link nav-link--cv">CV</a></li>
             </ul>
+
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            </div>
         </nav>
     </header>
 
@@ -54,35 +61,35 @@
         <!-- HERO -->
         <section id="home" class="hero">
             <div>
-                <p class="hero__handle">aka Maru</p>
+                <p class="hero__handle" data-i18n="hero.handle">aka Maru</p>
 
                 <h1 class="hero__title">
                     Joao Daniel <span>De Paiva Oliveira</span>
                 </h1>
 
-                <p class="hero__subtitle">
+                <p class="hero__subtitle" data-i18n="hero.subtitle">
                     IT systems student in <strong>Barcelona</strong>, moving into software development.
                     I write <strong>Python</strong>, build small web tools, and want to end up working with
                     <strong>data and AI</strong>.
                 </p>
 
                 <div class="hero__actions">
-                    <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" download>Download CV</a>
+                    <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" data-cv-link="main" data-i18n="hero.downloadCv" download>Download CV</a>
                     <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">GitHub</a>
                 </div>
             </div>
 
             <!-- Small interactive terminal (js/modules/terminal.js) -->
-            <div class="terminal" data-terminal data-autorun="whoami" aria-label="Interactive terminal">
+            <div class="terminal" data-terminal data-autorun="whoami" aria-label="Interactive terminal" data-i18n-aria-label="terminal.aria">
                 <div class="terminal__bar">
                     <span>maru@portfolio:~</span>
-                    <span>type "help"</span>
+                    <span data-i18n="terminal.hint">type "help"</span>
                 </div>
                 <div class="terminal__body">
                     <div class="terminal__output"></div>
                     <div class="terminal__input-row">
                         <span class="terminal__prompt">maru@portfolio:~$</span>
-                        <input type="text" class="terminal__input" aria-label="Terminal command" autocomplete="off" spellcheck="false">
+                        <input type="text" class="terminal__input" aria-label="Terminal command" data-i18n-aria-label="terminal.inputAria" autocomplete="off" spellcheck="false">
                     </div>
                 </div>
                 <div class="terminal__chips">
@@ -97,36 +104,36 @@
 
         <!-- ABOUT -->
         <section id="about" class="section">
-            <h2 class="section__title">About</h2>
+            <h2 class="section__title" data-i18n="nav.about">About</h2>
 
             <div class="about__grid">
                 <div class="about__text">
-                    <p>
+                    <p data-i18n="about.p1">
                         I'm in my second year of <strong>SMR (Microcomputer Systems and Networks)</strong> at Digitech FP in Barcelona:
                         hardware, operating systems, networks and security. That gave me a solid base, and my next step is software development.
                     </p>
-                    <p>
+                    <p data-i18n="about.p2">
                         I finished Harvard's <strong>CS50x</strong> and I'm working through the rest of the CS50 courses.
                         Outside class I play a lot of games and make my own in <strong>Roblox with Luau</strong>,
                         and I'm into anime and manga. Online I go by <strong>Maru</strong>.
                     </p>
-                    <p>
+                    <p data-i18n="about.p3">
                         I speak <strong>English and Portuguese</strong> natively and live in Spain.
                     </p>
                 </div>
 
-                <ol class="path" aria-label="Study path">
+                <ol class="path" aria-label="Study path" data-i18n-aria-label="about.pathAria">
                     <li class="path__step path__step--now">
-                        <span class="path__when">Now</span>
-                        <strong>SMR</strong>: systems, networks and scripting (2025–2027)
+                        <span class="path__when" data-i18n="about.now">Now</span>
+                        <span data-i18n="about.nowText"><strong>SMR</strong>: systems, networks and scripting (2025–2027)</span>
                     </li>
                     <li class="path__step">
-                        <span class="path__when">Next</span>
-                        <strong>DAM</strong>: multiplatform app development and databases
+                        <span class="path__when" data-i18n="about.next">Next</span>
+                        <span data-i18n="about.nextText"><strong>DAM</strong>: multiplatform app development and databases</span>
                     </li>
                     <li class="path__step">
-                        <span class="path__when">Later</span>
-                        <strong>Data &amp; AI</strong>: specialising in Python, Big Data and machine learning
+                        <span class="path__when" data-i18n="about.later">Later</span>
+                        <span data-i18n="about.laterText"><strong>Data &amp; AI</strong>: specialising in Python, Big Data and machine learning</span>
                     </li>
                 </ol>
             </div>
@@ -134,38 +141,38 @@
 
         <!-- SKILLS -->
         <section id="skills" class="section">
-            <h2 class="section__title">Skills</h2>
-            <p class="section__intro">What I use, and where I've actually used it.</p>
+            <h2 class="section__title" data-i18n="nav.skills">Skills</h2>
+            <p class="section__intro" data-i18n="skills.intro">What I use, and where I've actually used it.</p>
 
             <div class="skills__grid">
                 <div class="skills__group">
-                    <h3>Programming</h3>
+                    <h3 data-i18n="skills.programming">Programming</h3>
                     <ul class="skills__list">
-                        <li><span class="skills__name">Python</span><span class="skills__note">CS50 problem sets, the log analyzer on this site</span></li>
-                        <li><span class="skills__name">JavaScript</span><span class="skills__note">The lab apps and terminal on this site</span></li>
-                        <li><span class="skills__name">HTML &amp; CSS</span><span class="skills__note">This site and my school web exercises</span></li>
-                        <li><span class="skills__name">Java</span><span class="skills__note">Object-oriented basics, preparing for DAM</span></li>
-                        <li><span class="skills__name">Lua / Luau</span><span class="skills__note">Making games in Roblox Studio</span></li>
-                        <li><span class="skills__name">SQL</span><span class="skills__note">Relational databases in CS50</span></li>
+                        <li><span class="skills__name">Python</span><span class="skills__note" data-i18n="skills.python">CS50 problem sets, the log analyzer on this site</span></li>
+                        <li><span class="skills__name">JavaScript</span><span class="skills__note" data-i18n="skills.javascript">The lab apps and terminal on this site</span></li>
+                        <li><span class="skills__name">HTML &amp; CSS</span><span class="skills__note" data-i18n="skills.htmlCss">This site and my school web exercises</span></li>
+                        <li><span class="skills__name">Java</span><span class="skills__note" data-i18n="skills.java">Object-oriented basics, preparing for DAM</span></li>
+                        <li><span class="skills__name">Lua / Luau</span><span class="skills__note" data-i18n="skills.lua">Making games in Roblox Studio</span></li>
+                        <li><span class="skills__name">SQL</span><span class="skills__note" data-i18n="skills.sql">Relational databases in CS50</span></li>
                     </ul>
                 </div>
 
                 <div class="skills__group">
-                    <h3>Systems &amp; networks</h3>
+                    <h3 data-i18n="skills.systems">Systems &amp; networks</h3>
                     <ul class="skills__list">
-                        <li><span class="skills__name">Windows &amp; Windows Server</span><span class="skills__note">Users, groups and permissions, PowerShell</span></li>
-                        <li><span class="skills__name">Linux</span><span class="skills__note">Ubuntu / Debian from the command line, Bash</span></li>
-                        <li><span class="skills__name">Networks</span><span class="skills__note">LAN / WLAN, IPv4 addressing, DNS</span></li>
-                        <li><span class="skills__name">Hardware</span><span class="skills__note">Building, repairing and diagnosing PCs</span></li>
+                        <li><span class="skills__name">Windows &amp; Windows Server</span><span class="skills__note" data-i18n="skills.windows">Users, groups and permissions, PowerShell</span></li>
+                        <li><span class="skills__name">Linux</span><span class="skills__note" data-i18n="skills.linux">Ubuntu / Debian from the command line, Bash</span></li>
+                        <li><span class="skills__name" data-i18n="skills.networksName">Networks</span><span class="skills__note" data-i18n="skills.networks">LAN / WLAN, IPv4 addressing, DNS</span></li>
+                        <li><span class="skills__name" data-i18n="skills.hardwareName">Hardware</span><span class="skills__note" data-i18n="skills.hardware">Building, repairing and diagnosing PCs</span></li>
                     </ul>
                 </div>
 
                 <div class="skills__group">
-                    <h3>Tools</h3>
+                    <h3 data-i18n="skills.tools">Tools</h3>
                     <ul class="skills__list">
-                        <li><span class="skills__name">Git &amp; GitHub</span><span class="skills__note">Version control for my projects</span></li>
-                        <li><span class="skills__name">VS Code</span><span class="skills__note">My everyday editor</span></li>
-                        <li><span class="skills__name">VirtualBox</span><span class="skills__note">Virtual machines for school labs</span></li>
+                        <li><span class="skills__name">Git &amp; GitHub</span><span class="skills__note" data-i18n="skills.git">Version control for my projects</span></li>
+                        <li><span class="skills__name">VS Code</span><span class="skills__note" data-i18n="skills.vscode">My everyday editor</span></li>
+                        <li><span class="skills__name">VirtualBox</span><span class="skills__note" data-i18n="skills.virtualbox">Virtual machines for school labs</span></li>
                         <li><span class="skills__name">Office &amp; Google Workspace</span><span class="skills__note">Excel, Sheets, Word, Docs</span></li>
                     </ul>
                 </div>
@@ -174,36 +181,36 @@
 
         <!-- PROJECTS -->
         <section id="projects" class="section">
-            <h2 class="section__title">Projects</h2>
-            <p class="section__intro">Small projects I've worked on while learning.</p>
+            <h2 class="section__title" data-i18n="nav.projects">Projects</h2>
+            <p class="section__intro" data-i18n="projects.intro">Small projects I've worked on while learning.</p>
 
             <div class="projects__grid">
                 <article class="project-card">
                     <span class="project-card__tech">Python · regex · PyScript</span>
-                    <h3>Server log analyzer</h3>
-                    <p>Reads HTTP server logs, counts requests per IP and status code, lists every error, and flags an IP with repeated 401/403 responses as a possible brute-force attempt. It runs in the browser with PyScript.</p>
+                    <h3 data-i18n="projects.logTitle">Server log analyzer</h3>
+                    <p data-i18n="projects.logText">Reads HTTP server logs, counts requests per IP and status code, lists every error, and flags an IP with repeated 401/403 responses as a possible brute-force attempt. It runs in the browser with PyScript.</p>
                     <div class="project-card__links">
-                        <a href="#lab" data-open-tab="app-python">Try it</a>
-                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/python/log_analyzer.py" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="#lab" data-open-tab="app-python" data-i18n="projects.tryIt">Try it</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/python/log_analyzer.py" target="_blank" rel="noopener noreferrer" data-i18n="projects.code">Code</a>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <span class="project-card__tech">HTML · CSS · JavaScript</span>
-                    <h3>Interactive CV</h3>
-                    <p>My CV as a web page, with a small terminal you can type commands into, and the PDF to download in English or Spanish.</p>
+                    <h3 data-i18n="projects.cvTitle">Interactive CV</h3>
+                    <p data-i18n="projects.cvText">My CV as a web page, with a small terminal you can type commands into, and the PDF to download in English or Spanish.</p>
                     <div class="project-card__links">
-                        <a href="cv.html">Open</a>
-                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/cv.html" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a href="cv.html" data-i18n="projects.open">Open</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io/blob/main/cv.html" target="_blank" rel="noopener noreferrer" data-i18n="projects.code">Code</a>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <span class="project-card__tech">HTML · CSS · JavaScript</span>
-                    <h3>This portfolio</h3>
-                    <p>Built with plain HTML, CSS and JavaScript, no frameworks: responsive layout, a mobile menu, a terminal and three mini apps, hosted on GitHub Pages.</p>
+                    <h3 data-i18n="projects.siteTitle">This portfolio</h3>
+                    <p data-i18n="projects.siteText">Built with plain HTML, CSS and JavaScript, no frameworks: responsive layout, a mobile menu, a terminal, three mini apps and seven languages, hosted on GitHub Pages.</p>
                     <div class="project-card__links">
-                        <a href="https://github.com/jdanioliv/jdanioliv.github.io" target="_blank" rel="noopener noreferrer">Repository</a>
+                        <a href="https://github.com/jdanioliv/jdanioliv.github.io" target="_blank" rel="noopener noreferrer" data-i18n="projects.repository">Repository</a>
                     </div>
                 </article>
             </div>
@@ -211,13 +218,13 @@
 
         <!-- LAB -->
         <section id="lab" class="section">
-            <h2 class="section__title">Lab</h2>
-            <p class="section__intro">Three mini apps that run right here in the browser.</p>
+            <h2 class="section__title" data-i18n="nav.lab">Lab</h2>
+            <p class="section__intro" data-i18n="lab.intro">Three mini apps that run right here in the browser.</p>
 
-            <div class="lab-tabs" role="tablist" aria-label="Lab mini apps">
-                <button type="button" id="tab-analyzer" class="lab-tab lab-tab--active" role="tab" aria-selected="true" aria-controls="app-analyzer" data-target="app-analyzer">Text analyzer</button>
-                <button type="button" id="tab-python" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-python" data-target="app-python">Log analyzer (Python)</button>
-                <button type="button" id="tab-todo" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-todo" data-target="app-todo">Task manager</button>
+            <div class="lab-tabs" role="tablist" aria-label="Lab mini apps" data-i18n-aria-label="lab.tabsAria">
+                <button type="button" id="tab-analyzer" class="lab-tab lab-tab--active" role="tab" aria-selected="true" aria-controls="app-analyzer" data-target="app-analyzer" data-i18n="lab.textTitle">Text analyzer</button>
+                <button type="button" id="tab-python" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-python" data-target="app-python" data-i18n="lab.logTab">Log analyzer (Python)</button>
+                <button type="button" id="tab-todo" class="lab-tab" role="tab" aria-selected="false" aria-controls="app-todo" data-target="app-todo" data-i18n="lab.todoTitle">To Do List</button>
             </div>
 
             <div class="lab-container">
@@ -225,33 +232,33 @@
                 <!-- MINI APP 1: TEXT ANALYZER -->
                 <div id="app-analyzer" class="lab-panel lab-panel--active" role="tabpanel" aria-labelledby="tab-analyzer">
                     <div class="lab-panel__head">
-                        <h3>Text analyzer</h3>
-                        <p>Type or paste any text to count it live.</p>
+                        <h3 data-i18n="lab.textTitle">Text analyzer</h3>
+                        <p data-i18n="lab.textIntro">Type or paste any text to count it live.</p>
                     </div>
 
-                    <textarea id="analyzer-input" class="lab-textarea" placeholder="Type or paste text here..." rows="4"></textarea>
+                    <textarea id="analyzer-input" class="lab-textarea" placeholder="Type or paste text here..." data-i18n-placeholder="lab.textPlaceholder" rows="4"></textarea>
 
                     <div class="stats">
-                        <div class="stat"><span class="stat__label">Characters</span><span id="stat-chars" class="stat__value">0</span></div>
-                        <div class="stat"><span class="stat__label">Without spaces</span><span id="stat-no-spaces" class="stat__value">0</span></div>
-                        <div class="stat"><span class="stat__label">Words</span><span id="stat-words" class="stat__value">0</span></div>
-                        <div class="stat"><span class="stat__label">Reading time</span><span id="stat-time" class="stat__value">0s</span></div>
+                        <div class="stat"><span class="stat__label" data-i18n="lab.statChars">Characters</span><span id="stat-chars" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label" data-i18n="lab.statNoSpaces">Without spaces</span><span id="stat-no-spaces" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label" data-i18n="lab.statWords">Words</span><span id="stat-words" class="stat__value">0</span></div>
+                        <div class="stat"><span class="stat__label" data-i18n="lab.statTime">Reading time</span><span id="stat-time" class="stat__value">0s</span></div>
                     </div>
 
-                    <button type="button" id="analyzer-clear-btn" class="btn btn--secondary btn--small">Clear</button>
+                    <button type="button" id="analyzer-clear-btn" class="btn btn--secondary btn--small" data-i18n="lab.clear">Clear</button>
                 </div>
 
                 <!-- MINI APP 2: PYTHON LOG ANALYZER -->
                 <div id="app-python" class="lab-panel" role="tabpanel" aria-labelledby="tab-python">
                     <div class="lab-panel__head">
-                        <h3>Server log analyzer</h3>
+                        <h3 data-i18n="projects.logTitle">Server log analyzer</h3>
                         <span id="py-engine-status" class="badge">Python: not loaded</span>
-                        <p>Real Python (<code>re</code> and <code>collections.Counter</code>) running in your browser with PyScript.</p>
+                        <p data-i18n="lab.logIntro">Real Python (<code>re</code> and <code>collections.Counter</code>) running in your browser with PyScript.</p>
                     </div>
 
                     <div id="py-loader-box" class="py-loader">
                         <div class="spinner"></div>
-                        <p id="py-loader-text">Downloading Python for the browser (about 15 MB, only the first time)...</p>
+                        <p id="py-loader-text" data-i18n="lab.logLoading">Downloading Python for the browser (about 15 MB, only the first time)...</p>
                     </div>
 
                     <div id="py-workspace" class="hidden">
@@ -263,23 +270,23 @@
 192.168.1.10 - [25/Oct/2026:10:14:22] "GET /api/data HTTP/1.1" 500
 10.0.0.45 - [25/Oct/2026:10:14:30] "POST /api/login HTTP/1.1" 401</textarea>
 
-                        <button type="button" id="py-run-btn" class="btn btn--primary btn--small">Analyze logs</button>
+                        <button type="button" id="py-run-btn" class="btn btn--primary btn--small" data-i18n="lab.logRun">Analyze logs</button>
 
-                        <pre class="py-output"><code id="py-output-json">// Press "Analyze logs" to run the Python script...</code></pre>
+                        <pre class="py-output"><code id="py-output-json">// ...</code></pre>
                     </div>
                 </div>
 
-                <!-- MINI APP 3: TASK MANAGER -->
+                <!-- MINI APP 3: To do list -->
                 <div id="app-todo" class="lab-panel" role="tabpanel" aria-labelledby="tab-todo">
                     <div class="lab-panel__head">
-                        <h3>Task manager</h3>
+                        <h3 data-i18n="lab.todoTitle">To Do List</h3>
                         <span id="todo-count-badge" class="badge badge--ready">0 pending</span>
-                        <p>Your tasks are saved in this browser with <code>localStorage</code>, so they're still here when you come back.</p>
+                        <p data-i18n="lab.todoIntro">Your tasks are saved in this browser with <code>localStorage</code>, so they're still here when you come back.</p>
                     </div>
 
                     <form id="todo-form" class="todo__form">
-                        <input type="text" id="todo-input" class="lab-input" placeholder="New task (e.g. Finish CS50P problem set 2)" required>
-                        <button type="submit" class="btn btn--primary btn--small">Add</button>
+                        <input type="text" id="todo-input" class="lab-input" placeholder="New task (e.g. Finish CS50P problem set 2)" data-i18n-placeholder="lab.todoPlaceholder" required>
+                        <button type="submit" class="btn btn--primary btn--small" data-i18n="lab.todoAdd">Add</button>
                     </form>
 
                     <ul id="todo-list" class="todo__list"></ul>
@@ -289,46 +296,46 @@
 
         <!-- LEARNING -->
         <section id="learning" class="section">
-            <h2 class="section__title">Learning</h2>
-            <p class="section__intro">Courses I've finished and the ones I'm working through.</p>
+            <h2 class="section__title" data-i18n="nav.learning">Learning</h2>
+            <p class="section__intro" data-i18n="learning.intro">Courses I've finished and the ones I'm working through.</p>
 
             <div class="learning__grid">
                 <a href="courses/cs50x.html" class="cert-done">
-                    <span class="cert-done__badge">Completed · Certificate</span>
+                    <span class="cert-done__badge" data-i18n="status.completed">Completed · Certificate</span>
                     <h3>CS50x: Introduction to Computer Science</h3>
-                    <p>Harvard. Algorithms and data structures in C, memory, Python, SQL and a final web app with Flask.</p>
-                    <span class="cert-done__link">See certificate and notes →</span>
+                    <p data-i18n="learning.cs50xText">Harvard. Algorithms and data structures in C, memory, Python, SQL and a final web app with Flask.</p>
+                    <span class="cert-done__link" data-i18n="learning.cs50xLink">See certificate and notes →</span>
                 </a>
 
                 <ul class="course-list">
                     <li>
                         <a href="courses/cs50p.html">
                             <span class="course-list__name">CS50P: Programming with Python <span class="course-list__org">Harvard</span></span>
-                            <span class="status status--progress">In progress</span>
+                            <span class="status status--progress" data-i18n="status.inProgress">In progress</span>
                         </a>
                     </li>
                     <li>
                         <a href="courses/cs50w.html">
                             <span class="course-list__name">CS50W: Web Programming with Python and JavaScript <span class="course-list__org">Harvard</span></span>
-                            <span class="status status--progress">In progress</span>
+                            <span class="status status--progress" data-i18n="status.inProgress">In progress</span>
                         </a>
                     </li>
                     <li>
                         <a href="courses/cs50ai.html">
                             <span class="course-list__name">CS50AI: Artificial Intelligence with Python <span class="course-list__org">Harvard</span></span>
-                            <span class="status status--next">Up next</span>
+                            <span class="status status--next" data-i18n="status.upNext">Up next</span>
                         </a>
                     </li>
                     <li>
                         <a href="courses/cs50g.html">
                             <span class="course-list__name">CS50G: Introduction to Game Development <span class="course-list__org">Harvard</span></span>
-                            <span class="status status--next">Up next</span>
+                            <span class="status status--next" data-i18n="status.upNext">Up next</span>
                         </a>
                     </li>
                     <li>
                         <a href="courses/tinyml.html">
                             <span class="course-list__name">Tiny Machine Learning (TinyML) <span class="course-list__org">HarvardX</span></span>
-                            <span class="status status--later">Later</span>
+                            <span class="status status--later" data-i18n="status.later">Later</span>
                         </a>
                     </li>
                 </ul>
@@ -337,14 +344,14 @@
 
         <!-- CONTACT -->
         <section id="contact" class="section">
-            <h2 class="section__title">Contact</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="nav.contact">Contact</h2>
+            <p class="section__intro" data-i18n="contact.text">
                 I'm open to paid internships (FP prácticas) and junior roles in Barcelona, in IT support, systems administration or software development.
             </p>
 
             <div class="contact__actions">
                 <a href="mailto:joaodaniel.jd@icloud.com" class="btn btn--primary">joaodaniel.jd@icloud.com</a>
-                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--secondary" download>Download CV</a>
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--secondary" data-cv-link="main" data-i18n="hero.downloadCv" download>Download CV</a>
             </div>
         </section>
     </main>
@@ -354,7 +361,7 @@
             <p>&copy; 2026 Joao Daniel De Paiva Oliveira · Maru</p>
             <div class="footer__links">
                 <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="mailto:joaodaniel.jd@icloud.com">Email</a>
+                <a href="mailto:joaodaniel.jd@icloud.com" data-i18n="footer.email">Email</a>
                 <a href="cv.html">CV</a>
             </div>
         </div>

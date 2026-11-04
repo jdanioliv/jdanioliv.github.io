@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS50x: Certificate and notes | Joao Daniel De Paiva Oliveira</title>
+    <title data-i18n="cs50x.title">CS50x: Certificate and notes | Joao Daniel De Paiva Oliveira</title>
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="icon" href="../assets/img/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
@@ -13,64 +16,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+    <script src="../js/modules/i18n.js"></script>
+
     <!-- One level up (../) to use the same stylesheet as the home page -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="../index.html" class="navbar__logo">JD<span>.</span></a>
-            <a href="../index.html#learning" class="btn btn--secondary btn--small">&larr; Back to portfolio</a>
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <a href="../index.html#learning" class="btn btn--secondary btn--small" aria-label="Back to portfolio" data-i18n-aria-label="course.back">&larr; <span class="course-back" data-i18n="course.back">Back to portfolio</span></a>
+            </div>
         </nav>
     </header>
 
     <main class="section">
         <div class="course-head">
-            <span class="course-head__status status status--progress">Completed · Certificate</span>
+            <span class="course-head__status status status--progress" data-i18n="status.completed">Completed · Certificate</span>
             <h1>Harvard CS50x: Introduction to Computer Science</h1>
-            <p>Computer science fundamentals: low-level memory management, data structures, algorithms, and web development with Python and SQL.</p>
+            <p data-i18n="cs50x.intro">Computer science fundamentals: low-level memory management, data structures, algorithms, and web development with Python and SQL.</p>
         </div>
 
         <div class="course-grid">
             <div>
-                <h2 class="course-subtitle">Certificate</h2>
+                <h2 class="course-subtitle" data-i18n="course.certificate">Certificate</h2>
                 <div class="cert-frame">
-                    <img src="../assets/img/CS50X.jpeg" alt="Harvard CS50x certificate of Joao Daniel De Paiva Oliveira">
+                    <img src="../assets/img/CS50X.jpeg" alt="Harvard CS50x certificate of Joao Daniel De Paiva Oliveira" data-i18n-alt="cs50x.alt">
                 </div>
 
                 <div class="cert-verify">
                     <span>ID: ac25fcc6-0f12-4e0f-9cbd-6ca89c6bbfc6</span>
-                    <a href="https://cs50.harvard.edu/certificates/ac25fcc6-0f12-4e0f-9cbd-6ca89c6bbfc6" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--small">Verify on harvard.edu &nearr;</a>
+                    <a href="https://cs50.harvard.edu/certificates/ac25fcc6-0f12-4e0f-9cbd-6ca89c6bbfc6" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--small" data-i18n="cs50x.verify">Verify on harvard.edu ↗</a>
                 </div>
             </div>
 
             <div>
-                <h2 class="course-subtitle">What I learned, week by week</h2>
+                <h2 class="course-subtitle" data-i18n="cs50x.notes">What I learned, week by week</h2>
                 <div class="lecture-list">
                     <article class="lecture-item">
-                        <h3>Weeks 0–2: C, compiling and arrays</h3>
-                        <p>Binary, static data types, compiling with <code>clang</code>, functions, loops, arrays in contiguous memory, command-line arguments (<code>argc</code>, <code>argv</code>) and basic cryptography.</p>
+                        <h3 data-i18n="cs50x.l1Title">Weeks 0–2: C, compiling and arrays</h3>
+                        <p data-i18n="cs50x.l1Text">Binary, static data types, compiling with <code>clang</code>, functions, loops, arrays in contiguous memory, command-line arguments (<code>argc</code>, <code>argv</code>) and basic cryptography.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Week 3: Algorithms and Big O</h3>
-                        <p>Linear vs. binary search, sorting algorithms (bubble sort, selection sort, merge sort), recursion and running time analysis (<code>O(n)</code>, <code>O(log n)</code>, &Omega;).</p>
+                        <h3 data-i18n="cs50x.l2Title">Week 3: Algorithms and Big O</h3>
+                        <p data-i18n="cs50x.l2Text">Linear vs. binary search, sorting algorithms (bubble sort, selection sort, merge sort), recursion and running time analysis (<code>O(n)</code>, <code>O(log n)</code>, &Omega;).</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Weeks 4–5: Memory, pointers and data structures</h3>
-                        <p>Hexadecimal addresses, pointers in C, dynamic memory (<code>malloc</code> and <code>free</code>), finding leaks with Valgrind, linked lists, binary trees, hash tables and tries.</p>
+                        <h3 data-i18n="cs50x.l3Title">Weeks 4–5: Memory, pointers and data structures</h3>
+                        <p data-i18n="cs50x.l3Text">Hexadecimal addresses, pointers in C, dynamic memory (<code>malloc</code> and <code>free</code>), finding leaks with Valgrind, linked lists, binary trees, hash tables and tries.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Week 6: Python</h3>
-                        <p>Moving to a high-level language: lists, dictionaries, list comprehensions, exceptions and fast text and data processing.</p>
+                        <h3 data-i18n="cs50x.l4Title">Week 6: Python</h3>
+                        <p data-i18n="cs50x.l4Text">Moving to a high-level language: lists, dictionaries, list comprehensions, exceptions and fast text and data processing.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Week 7: SQL</h3>
-                        <p>Database schemas in <strong>SQLite</strong>, <code>SELECT</code> and <code>JOIN</code> queries, indexes, primary and foreign keys, and preventing <strong>SQL injection</strong>.</p>
+                        <h3 data-i18n="cs50x.l5Title">Week 7: SQL</h3>
+                        <p data-i18n="cs50x.l5Text">Database schemas in <strong>SQLite</strong>, <code>SELECT</code> and <code>JOIN</code> queries, indexes, primary and foreign keys, and preventing <strong>SQL injection</strong>.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Weeks 8–9: HTML, CSS, JavaScript and Flask</h3>
-                        <p>HTTP (GET/POST), web apps with <strong>Flask</strong>, <strong>Jinja</strong> templates, user sessions and connecting a backend to a database.</p>
+                        <h3 data-i18n="cs50x.l6Title">Weeks 8–9: HTML, CSS, JavaScript and Flask</h3>
+                        <p data-i18n="cs50x.l6Text">HTTP (GET/POST), web apps with <strong>Flask</strong>, <strong>Jinja</strong> templates, user sessions and connecting a backend to a database.</p>
                     </article>
                 </div>
             </div>

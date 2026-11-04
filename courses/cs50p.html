@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS50P: Programming with Python | Joao Daniel De Paiva Oliveira</title>
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="icon" href="../assets/img/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
@@ -13,50 +16,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+    <script src="../js/modules/i18n.js"></script>
+
     <!-- One level up (../) to use the same stylesheet as the home page -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="../index.html" class="navbar__logo">JD<span>.</span></a>
-            <a href="../index.html#learning" class="btn btn--secondary btn--small">&larr; Back to portfolio</a>
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <a href="../index.html#learning" class="btn btn--secondary btn--small" aria-label="Back to portfolio" data-i18n-aria-label="course.back">&larr; <span class="course-back" data-i18n="course.back">Back to portfolio</span></a>
+            </div>
         </nav>
     </header>
 
     <main class="section">
         <div class="course-head">
-            <span class="course-head__status status status--progress">In progress</span>
+            <span class="course-head__status status status--progress" data-i18n="status.inProgress">In progress</span>
             <h1>CS50P: Introduction to Programming with Python</h1>
-            <p>Harvard&#x27;s Python course. The certificate will appear here when I finish all the problem sets and the final project.</p>
+            <p data-i18n="cs50p.intro">Harvard's Python course. The certificate will appear here when I finish all the problem sets and the final project.</p>
         </div>
 
         <div class="course-grid">
             <div>
-                <h2 class="course-subtitle">Certificate</h2>
+                <h2 class="course-subtitle" data-i18n="course.certificate">Certificate</h2>
                 <div class="cert-frame">
                     <div class="cert-frame__locked">
-                        <strong>Not finished yet</strong>
-                        <p>Unlocks after the CS50P final project.</p>
+                        <strong data-i18n="course.notFinished">Not finished yet</strong>
+                        <p data-i18n="cs50p.hint">Unlocks after the CS50P final project.</p>
                     </div>
                 </div>
             </div>
 
             <div>
-                <h2 class="course-subtitle">Course outline</h2>
+                <h2 class="course-subtitle" data-i18n="course.outline">Course outline</h2>
                 <div class="lecture-list">
                     <article class="lecture-item">
-                        <h3>Lectures 0–2: Functions, conditionals and loops</h3>
-                        <p>Types in Python, string methods (<code>str</code>), control flow, dictionaries and iterating over data structures.</p>
+                        <h3 data-i18n="cs50p.l1Title">Lectures 0–2: Functions, conditionals and loops</h3>
+                        <p data-i18n="cs50p.l1Text">Types in Python, string methods (<code>str</code>), control flow, dictionaries and iterating over data structures.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Lectures 3–5: Exceptions, libraries and unit tests</h3>
-                        <p>Handling errors with <code>try/except</code>, external APIs with <code>requests</code>, making packages and automated tests with <code>pytest</code>.</p>
+                        <h3 data-i18n="cs50p.l2Title">Lectures 3–5: Exceptions, libraries and unit tests</h3>
+                        <p data-i18n="cs50p.l2Text">Handling errors with <code>try/except</code>, external APIs with <code>requests</code>, making packages and automated tests with <code>pytest</code>.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Lectures 6–8: File I/O, regular expressions and OOP</h3>
-                        <p>Reading and writing CSV files, pattern matching with <code>re</code>, classes, methods, properties (<code>@property</code>) and inheritance.</p>
+                        <h3 data-i18n="cs50p.l3Title">Lectures 6–8: File I/O, regular expressions and OOP</h3>
+                        <p data-i18n="cs50p.l3Text">Reading and writing CSV files, pattern matching with <code>re</code>, classes, methods, properties (<code>@property</code>) and inheritance.</p>
                     </article>
                 </div>
             </div>

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny Machine Learning (TinyML) | Joao Daniel De Paiva Oliveira</title>
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="icon" href="../assets/img/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
@@ -13,50 +16,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+    <script src="../js/modules/i18n.js"></script>
+
     <!-- One level up (../) to use the same stylesheet as the home page -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="../index.html" class="navbar__logo">JD<span>.</span></a>
-            <a href="../index.html#learning" class="btn btn--secondary btn--small">&larr; Back to portfolio</a>
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <a href="../index.html#learning" class="btn btn--secondary btn--small" aria-label="Back to portfolio" data-i18n-aria-label="course.back">&larr; <span class="course-back" data-i18n="course.back">Back to portfolio</span></a>
+            </div>
         </nav>
     </header>
 
     <main class="section">
         <div class="course-head">
-            <span class="course-head__status status status--later">Later</span>
+            <span class="course-head__status status status--later" data-i18n="status.later">Later</span>
             <h1>HarvardX: Tiny Machine Learning (TinyML)</h1>
-            <p>Machine learning on very small devices: training models and running them on microcontrollers with TensorFlow Lite.</p>
+            <p data-i18n="tinyml.intro">Machine learning on very small devices: training models and running them on microcontrollers with TensorFlow Lite.</p>
         </div>
 
         <div class="course-grid">
             <div>
-                <h2 class="course-subtitle">Certificate</h2>
+                <h2 class="course-subtitle" data-i18n="course.certificate">Certificate</h2>
                 <div class="cert-frame">
                     <div class="cert-frame__locked">
-                        <strong>Not started yet</strong>
-                        <p>Planned after the CS50 courses.</p>
+                        <strong data-i18n="course.notStarted">Not started yet</strong>
+                        <p data-i18n="tinyml.hint">Planned after the CS50 courses.</p>
                     </div>
                 </div>
             </div>
 
             <div>
-                <h2 class="course-subtitle">Program outline</h2>
+                <h2 class="course-subtitle" data-i18n="course.programOutline">Program outline</h2>
                 <div class="lecture-list">
                     <article class="lecture-item">
-                        <h3>Fundamentals of TinyML</h3>
-                        <p>The basics of machine learning and deep learning, and what changes when the model has to fit in a tiny device.</p>
+                        <h3 data-i18n="tinyml.l1Title">Fundamentals of TinyML</h3>
+                        <p data-i18n="tinyml.l1Text">The basics of machine learning and deep learning, and what changes when the model has to fit in a tiny device.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Applications of TinyML</h3>
-                        <p>Keyword spotting, visual wake words, anomaly detection and data collection for real use cases.</p>
+                        <h3 data-i18n="tinyml.l2Title">Applications of TinyML</h3>
+                        <p data-i18n="tinyml.l2Text">Keyword spotting, visual wake words, anomaly detection and data collection for real use cases.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Deploying TinyML</h3>
-                        <p>Running models on a microcontroller with TensorFlow Lite for Microcontrollers, and the basics of MLOps.</p>
+                        <h3 data-i18n="tinyml.l3Title">Deploying TinyML</h3>
+                        <p data-i18n="tinyml.l3Text">Running models on a microcontroller with TensorFlow Lite for Microcontrollers, and the basics of MLOps.</p>
                     </article>
                 </div>
             </div>

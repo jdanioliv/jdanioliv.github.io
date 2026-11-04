@@ -60,6 +60,9 @@ body::before {
     mask-image: radial-gradient(circle at 100% 0%, #000 0%, transparent 55%);
 }
 
+/* Hidden for a moment while another language loads, so English doesn't flash first */
+html.i18n-loading body { visibility: hidden; }
+
 ul, ol { list-style: none; }
 
 a {
@@ -112,6 +115,8 @@ code {
 .navbar__links {
     display: flex;
     gap: 1.8rem;
+    margin-left: auto;
+    margin-right: 1.5rem;
 }
 
 .nav-link {
@@ -138,6 +143,79 @@ code {
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
     cursor: pointer;
+}
+
+/* Language button and its menu (built by js/modules/i18n.js) */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.lang { position: relative; }
+
+.lang__button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    transition: border-color var(--ease);
+}
+
+.lang__button:hover { border-color: var(--text); }
+
+.lang__icon {
+    width: 1.05em;
+    height: 1.05em;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.8;
+}
+
+.lang__menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 9.5rem;
+    padding: 0.35rem;
+    background-color: var(--surface-2);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--red);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lang__menu[hidden] { display: none; }
+
+.lang__option {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+}
+
+.lang__option:hover {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+.lang__option--current {
+    color: var(--gold);
+    font-weight: 600;
 }
 
 /* 4. BUTTONS */
@@ -999,6 +1077,7 @@ code {
         right: 0;
         flex-direction: column;
         gap: 0;
+        margin: 0;
         background-color: var(--bg);
         border-bottom: 1px solid var(--line);
     }
@@ -1024,6 +1103,9 @@ code {
 }
 
 @media (max-width: 600px) {
+    /* Only the arrow on small phones: long words like "Zurück zum Portfolio" don't fit */
+    .course-back { display: none; }
+
     .skills__grid,
     .projects__grid,
     .cv-sheet {

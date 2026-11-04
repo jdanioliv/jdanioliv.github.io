@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS50G: Introduction to Game Development | Joao Daniel De Paiva Oliveira</title>
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="icon" href="../assets/img/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
@@ -13,50 +16,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+    <script src="../js/modules/i18n.js"></script>
+
     <!-- One level up (../) to use the same stylesheet as the home page -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="../index.html" class="navbar__logo">JD<span>.</span></a>
-            <a href="../index.html#learning" class="btn btn--secondary btn--small">&larr; Back to portfolio</a>
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <a href="../index.html#learning" class="btn btn--secondary btn--small" aria-label="Back to portfolio" data-i18n-aria-label="course.back">&larr; <span class="course-back" data-i18n="course.back">Back to portfolio</span></a>
+            </div>
         </nav>
     </header>
 
     <main class="section">
         <div class="course-head">
-            <span class="course-head__status status status--next">Up next</span>
+            <span class="course-head__status status status--next" data-i18n="status.upNext">Up next</span>
             <h1>CS50G: Introduction to Game Development</h1>
-            <p>Harvard&#x27;s game development course: recreating classic games in Lua with LÖVE, then 3D games in Unity with C#. A natural fit with the games I already make in Roblox.</p>
+            <p data-i18n="cs50g.intro">Harvard's game development course: recreating classic games in Lua with LÖVE, then 3D games in Unity with C#. A natural fit with the games I already make in Roblox.</p>
         </div>
 
         <div class="course-grid">
             <div>
-                <h2 class="course-subtitle">Certificate</h2>
+                <h2 class="course-subtitle" data-i18n="course.certificate">Certificate</h2>
                 <div class="cert-frame">
                     <div class="cert-frame__locked">
-                        <strong>Not started yet</strong>
-                        <p>On my list after CS50AI.</p>
+                        <strong data-i18n="course.notStarted">Not started yet</strong>
+                        <p data-i18n="cs50g.hint">On my list after CS50AI.</p>
                     </div>
                 </div>
             </div>
 
             <div>
-                <h2 class="course-subtitle">Course outline</h2>
+                <h2 class="course-subtitle" data-i18n="course.outline">Course outline</h2>
                 <div class="lecture-list">
                     <article class="lecture-item">
-                        <h3>2D games in Lua (LÖVE)</h3>
-                        <p>Pong, Flappy Bird, Breakout, Match-3, Super Mario Bros. and Zelda-style games: game loops, sprites, collisions and state machines.</p>
+                        <h3 data-i18n="cs50g.l1Title">2D games in Lua (LÖVE)</h3>
+                        <p data-i18n="cs50g.l1Text">Pong, Flappy Bird, Breakout, Match-3, Super Mario Bros. and Zelda-style games: game loops, sprites, collisions and state machines.</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>Physics and bigger 2D games</h3>
-                        <p>Box2D physics (Angry Birds) and an RPG with turn-based battles (Pokémon).</p>
+                        <h3 data-i18n="cs50g.l2Title">Physics and bigger 2D games</h3>
+                        <p data-i18n="cs50g.l2Text">Box2D physics (Angry Birds) and an RPG with turn-based battles (Pokémon).</p>
                     </article>
                     <article class="lecture-item">
-                        <h3>3D games in Unity (C#)</h3>
-                        <p>Unity basics, 3D movement, procedural levels and first-person games (Dreadhalls, Portal).</p>
+                        <h3 data-i18n="cs50g.l3Title">3D games in Unity (C#)</h3>
+                        <p data-i18n="cs50g.l3Text">Unity basics, 3D movement, procedural levels and first-person games (Dreadhalls, Portal).</p>
                     </article>
                 </div>
             </div>

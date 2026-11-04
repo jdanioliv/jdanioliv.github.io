@@ -4,20 +4,26 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
 if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('navbar__links--open');
+    function updateMenuButton() {
+        const isOpen = navLinks.classList.contains('navbar__links--open');
         navToggle.setAttribute('aria-expanded', isOpen);
-        navToggle.textContent = isOpen ? 'Close' : 'Menu';
+        navToggle.textContent = isOpen ? t('nav.close', 'Close') : t('nav.menu', 'Menu');
+    }
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('navbar__links--open');
+        updateMenuButton();
     });
 
     // Close the menu after choosing a section
     navLinks.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('navbar__links--open');
-            navToggle.setAttribute('aria-expanded', false);
-            navToggle.textContent = 'Menu';
+            updateMenuButton();
         });
     });
+
+    document.addEventListener('i18n:change', updateMenuButton);
 }
 
 
@@ -95,19 +101,44 @@ if (textInput) {
 
 // 4. MINI APP: PYTHON LOG ANALYZER (loads PyScript only when needed)
 let isPyScriptLoaded = false;
+let pythonStatus = 'idle';
+
+// Python: PYTHON_STATUS = {"idle": {...}, "loading": {...}, ...}
+const PYTHON_STATUS = {
+    idle: { key: 'lab.statusIdle', english: 'Python: not loaded', badge: 'badge' },
+    loading: { key: 'lab.statusLoading', english: 'Python: loading...', badge: 'badge badge--loading' },
+    ready: { key: 'lab.statusReady', english: 'Python: ready', badge: 'badge badge--ready' },
+    error: { key: 'lab.statusError', english: 'Python: error', badge: 'badge badge--error' },
+};
+
+function showPythonStatus(status) {
+    const statusBadge = document.getElementById('py-engine-status');
+    const { key, english, badge } = PYTHON_STATUS[status];
+
+    pythonStatus = status;
+    statusBadge.textContent = t(key, english);
+    statusBadge.className = badge;
+
+    if (status === 'error') {
+        document.getElementById('py-loader-text').textContent =
+            t('lab.logLoadError', 'Could not download PyScript. Check your internet connection.');
+    }
+}
+
+// Rewrite the badge when the language changes (only the home page has it)
+if (document.getElementById('py-engine-status')) {
+    document.addEventListener('i18n:change', () => showPythonStatus(pythonStatus));
+}
 
 function loadPyScriptEngine() {
     // Don't download Python twice
     if (isPyScriptLoaded) return;
     isPyScriptLoaded = true;
 
-    const statusBadge = document.getElementById('py-engine-status');
     const loaderBox = document.getElementById('py-loader-box');
-    const loaderText = document.getElementById('py-loader-text');
     const workspace = document.getElementById('py-workspace');
 
-    statusBadge.textContent = 'Python: loading...';
-    statusBadge.className = 'badge badge--loading';
+    showPythonStatus('loading');
 
     // PyScript engine
     const engine = document.createElement('script');
@@ -120,17 +151,12 @@ function loadPyScriptEngine() {
     pythonFile.src = './python/log_analyzer.py';
 
     window.addEventListener('py:ready', () => {
-        statusBadge.textContent = 'Python: ready';
-        statusBadge.className = 'badge badge--ready';
+        showPythonStatus('ready');
         loaderBox.classList.add('hidden');
         workspace.classList.remove('hidden');
     });
 
-    engine.addEventListener('error', () => {
-        statusBadge.textContent = 'Python: error';
-        statusBadge.className = 'badge badge--error';
-        loaderText.textContent = 'Could not download PyScript. Check your internet connection.';
-    });
+    engine.addEventListener('error', () => showPythonStatus('error'));
 
     document.head.appendChild(engine);
     document.body.appendChild(pythonFile);
@@ -172,7 +198,7 @@ if (todoForm) {
         if (tasks.length === 0) {
             const empty = document.createElement('li');
             empty.className = 'todo__empty';
-            empty.textContent = 'No tasks yet. Add one above.';
+            empty.textContent = t('lab.todoEmpty', 'No tasks yet. Add one above.');
             todoList.appendChild(empty);
         }
 
@@ -197,7 +223,7 @@ if (todoForm) {
             const deleteBtn = document.createElement('button');
             deleteBtn.type = 'button';
             deleteBtn.className = 'todo__delete';
-            deleteBtn.textContent = 'Delete';
+            deleteBtn.textContent = t('lab.todoDelete', 'Delete');
             deleteBtn.addEventListener('click', () => {
                 // Python: tasks.pop(index)
                 tasks.splice(index, 1);
@@ -211,8 +237,11 @@ if (todoForm) {
 
         // Python: sum(1 for t in tasks if not t["done"])
         const pending = tasks.filter((task) => !task.done).length;
-        todoBadge.textContent = `${pending} pending`;
+        todoBadge.textContent = t('lab.todoPending', '{count} pending', { count: pending });
     }
+
+    // Rewrite the list when the language changes
+    document.addEventListener('i18n:change', renderTasks);
 
     todoForm.addEventListener('submit', (event) => {
         event.preventDefault();

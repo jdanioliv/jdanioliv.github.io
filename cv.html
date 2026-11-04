@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive CV of Joao Daniel De Paiva Oliveira, with PDF downloads in English and Spanish.">
+    <meta name="description" content="Interactive CV of Joao Daniel De Paiva Oliveira, with PDF downloads in English and Spanish." data-i18n-content="cv.description">
+
+    <!-- The site has its own translations, so browsers shouldn't translate it on top of them -->
+    <meta name="google" content="notranslate">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
 
+    <script src="js/modules/i18n.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/modules/terminal.js" defer></script>
     <script src="js/modules/main.js" defer></script>
@@ -32,31 +36,34 @@
 <body>
 
     <header class="site-header">
-        <nav class="navbar" aria-label="Main navigation">
+        <nav class="navbar" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
             <a href="index.html" class="navbar__logo">JD<span>.</span></a>
 
-            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-
             <ul class="navbar__links" id="nav-links">
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                <li><a href="index.html#lab" class="nav-link">Lab</a></li>
-                <li><a href="index.html#learning" class="nav-link">Learning</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="index.html#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="index.html#lab" class="nav-link" data-i18n="nav.lab">Lab</a></li>
+                <li><a href="index.html#learning" class="nav-link" data-i18n="nav.learning">Learning</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 <li><a href="cv.html" class="nav-link nav-link--cv">CV</a></li>
             </ul>
+
+            <div class="navbar__actions">
+                <div class="lang" data-language-switcher></div>
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+            </div>
         </nav>
     </header>
 
     <main class="section">
         <div class="cv-page__head">
             <div>
-                <h1 class="section__title">Curriculum Vitae</h1>
-                <p class="section__intro" style="margin-bottom: 0;">Read it here, ask the terminal, or download the PDF.</p>
+                <h1 class="section__title" data-i18n="cv.heading">Curriculum Vitae</h1>
+                <p class="section__intro" style="margin-bottom: 0;" data-i18n="cv.intro">Read it here, ask the terminal, or download the PDF.</p>
             </div>
             <div class="cv-page__downloads">
-                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" download>Download PDF (English)</a>
-                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_ES.pdf" class="btn btn--secondary" download>PDF (Español)</a>
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf" class="btn btn--primary" data-cv-link="main" data-i18n="cv.downloadMain" download>Download PDF (English)</a>
+                <a href="assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_ES.pdf" class="btn btn--secondary" data-cv-link="other" data-i18n="cv.downloadOther" download>PDF (Español)</a>
             </div>
         </div>
 
@@ -65,34 +72,34 @@
             <article class="cv-sheet">
                 <div>
                     <section class="cv-block">
-                        <h2>Personal details</h2>
-                        <div class="cv-row"><span class="cv-label">Full name</span>Joao Daniel De Paiva Oliveira</div>
-                        <div class="cv-row"><span class="cv-label">Location</span>Barcelona, Spain</div>
-                        <div class="cv-row"><span class="cv-label">Email</span><a href="mailto:joaodaniel.jd@icloud.com">joaodaniel.jd@icloud.com</a></div>
+                        <h2 data-i18n="cv.personal">Personal details</h2>
+                        <div class="cv-row"><span class="cv-label" data-i18n="cv.fullName">Full name</span>Joao Daniel De Paiva Oliveira</div>
+                        <div class="cv-row"><span class="cv-label" data-i18n="cv.location">Location</span><span data-i18n="cv.locationValue">Barcelona, Spain</span></div>
+                        <div class="cv-row"><span class="cv-label" data-i18n="footer.email">Email</span><a href="mailto:joaodaniel.jd@icloud.com">joaodaniel.jd@icloud.com</a></div>
                         <div class="cv-row"><span class="cv-label">GitHub</span><a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">github.com/jdanioliv</a></div>
-                        <div class="cv-row"><span class="cv-label">Open to</span>Paid internships (FP prácticas) and junior roles</div>
+                        <div class="cv-row"><span class="cv-label" data-i18n="cv.openTo">Open to</span><span data-i18n="cv.openToValue">Paid internships (FP prácticas) and junior roles</span></div>
                     </section>
 
                     <section class="cv-block">
-                        <h2>Additional training</h2>
+                        <h2 data-i18n="cv.training">Additional training</h2>
                         <div class="cv-item">
                             <div class="cv-item__head">CS50: Introduction to Computer Science</div>
                             <div class="cv-item__place">Harvard University · 2025</div>
-                            <p>Algorithms, data structures, memory management in C, SQL and Python.</p>
+                            <p data-i18n="cv.trainingText">Algorithms, data structures, memory management in C, SQL and Python.</p>
                         </div>
                     </section>
 
                     <section class="cv-block">
-                        <h2>Languages</h2>
-                        <div class="cv-row"><span class="cv-label">English</span>Native</div>
-                        <div class="cv-row"><span class="cv-label">Portuguese</span>Native</div>
+                        <h2 data-i18n="cv.languages">Languages</h2>
+                        <div class="cv-row"><span class="cv-label" data-i18n="cv.english">English</span><span data-i18n="cv.native">Native</span></div>
+                        <div class="cv-row"><span class="cv-label" data-i18n="cv.portuguese">Portuguese</span><span data-i18n="cv.native">Native</span></div>
                     </section>
                 </div>
 
                 <div>
                     <section class="cv-block">
-                        <h2>Introduction</h2>
-                        <p>
+                        <h2 data-i18n="cv.introduction">Introduction</h2>
+                        <p data-i18n="cv.introductionText">
                             Second-year student of IT Systems and Networks (SMR) at Digitech FP, with a background in
                             Computer Science (Harvard CS50). Analytical and solution-oriented, quick to learn new technologies
                             and good at communicating with people. Interested in technical support, systems administration
@@ -101,25 +108,25 @@
                     </section>
 
                     <section class="cv-block">
-                        <h2>Technical skills</h2>
-                        <div class="cv-skill"><strong>Programming and web</strong>Python, Java, JavaScript, HTML5, CSS3, C++, Git / GitHub</div>
-                        <div class="cv-skill"><strong>Databases</strong>SQL (relational databases)</div>
-                        <div class="cv-skill"><strong>Operating systems</strong>Windows 10/11, Windows Server 2022, Ubuntu / Debian Linux</div>
-                        <div class="cv-skill"><strong>Administration</strong>Active Directory (users, groups and permissions), PowerShell, Bash</div>
-                        <div class="cv-skill"><strong>Networks</strong>LAN / WLAN, IPv4 addressing, DNS</div>
-                        <div class="cv-skill"><strong>Hardware</strong>PC building, maintenance and diagnostics; OS installation, partitioning and cloning</div>
-                        <div class="cv-skill"><strong>Virtualisation</strong>VirtualBox</div>
-                        <div class="cv-skill"><strong>Office tools</strong>Excel, Google Sheets, Word, Google Docs, PowerPoint, Outlook</div>
+                        <h2 data-i18n="cv.skills">Technical skills</h2>
+                        <div class="cv-skill"><strong data-i18n="cv.programming">Programming and web</strong>Python, Java, JavaScript, HTML5, CSS3, C++, Git / GitHub</div>
+                        <div class="cv-skill"><strong data-i18n="cv.databases">Databases</strong><span data-i18n="cv.databasesValue">SQL (relational databases)</span></div>
+                        <div class="cv-skill"><strong data-i18n="cv.os">Operating systems</strong>Windows 10/11, Windows Server 2022, Ubuntu / Debian Linux</div>
+                        <div class="cv-skill"><strong data-i18n="cv.administration">Administration</strong><span data-i18n="cv.administrationValue">Active Directory (users, groups and permissions), PowerShell, Bash</span></div>
+                        <div class="cv-skill"><strong data-i18n="skills.networksName">Networks</strong><span data-i18n="skills.networks">LAN / WLAN, IPv4 addressing, DNS</span></div>
+                        <div class="cv-skill"><strong data-i18n="skills.hardwareName">Hardware</strong><span data-i18n="cv.hardwareValue">PC building, maintenance and diagnostics; OS installation, partitioning and cloning</span></div>
+                        <div class="cv-skill"><strong data-i18n="cv.virtualisation">Virtualisation</strong>VirtualBox</div>
+                        <div class="cv-skill"><strong data-i18n="cv.office">Office tools</strong>Excel, Google Sheets, Word, Google Docs, PowerPoint, Outlook</div>
                     </section>
 
                     <section class="cv-block">
-                        <h2>Education</h2>
+                        <h2 data-i18n="cv.education">Education</h2>
                         <div class="cv-item">
-                            <div class="cv-item__head">Vocational Diploma in IT Systems and Networks (SMR)<span class="cv-item__date">2025 – 2027</span></div>
-                            <div class="cv-item__place">Digitech FP, Barcelona · In progress</div>
+                            <div class="cv-item__head"><span data-i18n="cv.smr">Vocational Diploma in IT Systems and Networks (SMR)</span><span class="cv-item__date">2025 – 2027</span></div>
+                            <div class="cv-item__place" data-i18n="cv.smrPlace">Digitech FP, Barcelona · In progress</div>
                         </div>
                         <div class="cv-item">
-                            <div class="cv-item__head">Compulsory Secondary Education (ESO)<span class="cv-item__date">2023 – 2024</span></div>
+                            <div class="cv-item__head"><span data-i18n="cv.eso">Compulsory Secondary Education (ESO)</span><span class="cv-item__date">2023 – 2024</span></div>
                             <div class="cv-item__place">Colegio María Inmaculada Carmelitas Vedruna, Vigo</div>
                         </div>
                     </section>
@@ -127,16 +134,16 @@
             </article>
 
             <!-- Same terminal as the home page (js/modules/terminal.js) -->
-            <div class="terminal" data-terminal aria-label="Interactive terminal">
+            <div class="terminal" data-terminal aria-label="Interactive terminal" data-i18n-aria-label="terminal.aria">
                 <div class="terminal__bar">
                     <span>maru@cv:~</span>
-                    <span>type "help"</span>
+                    <span data-i18n="terminal.hint">type "help"</span>
                 </div>
                 <div class="terminal__body">
                     <div class="terminal__output"></div>
                     <div class="terminal__input-row">
                         <span class="terminal__prompt">maru@portfolio:~$</span>
-                        <input type="text" class="terminal__input" aria-label="Terminal command" autocomplete="off" spellcheck="false">
+                        <input type="text" class="terminal__input" aria-label="Terminal command" data-i18n-aria-label="terminal.inputAria" autocomplete="off" spellcheck="false">
                     </div>
                 </div>
                 <div class="terminal__chips">
@@ -155,8 +162,8 @@
             <p>&copy; 2026 Joao Daniel De Paiva Oliveira · Maru</p>
             <div class="footer__links">
                 <a href="https://github.com/jdanioliv" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="mailto:joaodaniel.jd@icloud.com">Email</a>
-                <a href="index.html">Home</a>
+                <a href="mailto:joaodaniel.jd@icloud.com" data-i18n="footer.email">Email</a>
+                <a href="index.html" data-i18n="footer.home">Home</a>
             </div>
         </div>
     </footer>

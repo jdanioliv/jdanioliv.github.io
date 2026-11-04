@@ -1,7 +1,8 @@
 // INTERACTIVE TERMINAL
 // Used on index.html and cv.html. Every <div data-terminal> on the page becomes a terminal.
 
-// Answers for each command. In Python this would be a dict: {"help": "...", ...}
+// Answers for each command, in English. In Python this would be a dict: {"help": "...", ...}
+// The commands themselves (whoami, skills...) are never translated, only their answers.
 const COMMANDS = {
     help: 'Commands: whoami, skills, projects, contact, cv, clear',
     whoami: 'Joao Daniel De Paiva Oliveira (aka Maru)\n' +
@@ -24,7 +25,7 @@ const COMMANDS = {
 // CV files offered by the "cv" command
 const CV_FILES = [
     { label: 'English', href: 'assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_EN.pdf' },
-    { label: 'Spanish', href: 'assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_ES.pdf' },
+    { label: 'Español', href: 'assets/cv/CV_Joao_Daniel_de_Paiva_Oliveira_ES.pdf' },
 ];
 
 function setUpTerminal(terminal) {
@@ -42,7 +43,7 @@ function setUpTerminal(terminal) {
     }
 
     function printCvLinks() {
-        const line = print('Download my CV: ');
+        const line = print(t('terminal.cv', 'Download my CV:') + ' ');
         CV_FILES.forEach((file, index) => {
             const link = document.createElement('a');
             link.href = file.href;
@@ -67,9 +68,9 @@ function setUpTerminal(terminal) {
         } else if (command === 'cv') {
             printCvLinks();
         } else if (command in COMMANDS) {
-            print(COMMANDS[command]);
+            print(t(`terminal.${command}`, COMMANDS[command]));
         } else {
-            print(`Command not found: ${command}. Type "help".`, 'terminal__error');
+            print(t('terminal.notFound', 'Command not found: {command}. Type "help".', { command }), 'terminal__error');
         }
 
         input.value = '';
@@ -90,12 +91,20 @@ function setUpTerminal(terminal) {
         button.addEventListener('click', () => run(button.dataset.command));
     });
 
-    print('Welcome! Type "help" to see the commands.', 'terminal__accent');
+    function start() {
+        output.innerHTML = '';
+        print(t('terminal.welcome', 'Welcome! Type "help" to see the commands.'), 'terminal__accent');
 
-    // Optional first command, e.g. data-autorun="whoami"
-    if (terminal.dataset.autorun) {
-        run(terminal.dataset.autorun);
+        // Optional first command, e.g. data-autorun="whoami"
+        if (terminal.dataset.autorun) {
+            run(terminal.dataset.autorun);
+        }
     }
+
+    start();
+
+    // When the language changes, start again so everything on screen is in the new language
+    document.addEventListener('i18n:change', start);
 
     // The web fonts can change how lines wrap once they load, so scroll down again
     document.fonts.ready.then(() => {
